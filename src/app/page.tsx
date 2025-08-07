@@ -1,10 +1,9 @@
-import { Toaster } from "react-hot-toast";
+import Banner from "@/components/Home/banner/Banner";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello world</h1>
-      <Toaster />
+      <Banner/>
     </div>
   );
 }
