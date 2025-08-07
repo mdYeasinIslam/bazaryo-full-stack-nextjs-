@@ -3,6 +3,7 @@ import React from "react";
 import { BiHeart, BiStar } from "react-icons/bi";
 import { BsEye } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
+import { FaHeart } from "react-icons/fa";
 
 interface PropType {
   product: ProductType;
@@ -47,7 +48,7 @@ export default function DisplayProduct({
         onClick={() => toggleFavorite(product.id)}
         className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-lg"
       >
-        <BiHeart
+        <FaHeart
           className={`w-5 h-5 ${
             favorites.includes(product.id)
               ? "text-red-500 fill-current"
@@ -133,7 +134,7 @@ export default function DisplayProduct({
           disabled={!product.inStock}
           className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
             product.inStock
-              ? "bg-blue-600 text-white hover:bg-blue-700"
+              ? "bg-[var(--primary-color)] text-white hover:bg-[var(--hover-color)]"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
