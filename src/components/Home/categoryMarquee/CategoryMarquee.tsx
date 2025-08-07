@@ -14,6 +14,7 @@ import {
   MdCardGiftcard,
 } from "react-icons/md";
 import MarqueeContent from "./MarqueeContent";
+import CommonTitle from "@/components/shared/CommonTitle";
 
 const categories = [
   {
@@ -121,14 +122,11 @@ const CategoryMarquee = () => {
     >
       <div className="container mx-auto   space-y-10">
         <div className="container mx-auto px-6 mb-12">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Shop by Category
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover thousands of products across all your favorite categories
-            </p>
-          </div>
+          {/* Section Header */}
+          <CommonTitle
+            header="  Shop by Category"
+            text=" Discover thousands of products across all your favorite categories"
+          />
         </div>
         <Marquee className="!w-full ">
           {categories?.map((category, index) => (
