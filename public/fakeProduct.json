@@ -1,0 +1,325 @@
+[
+    {
+        "id": 1,
+        "name": "Smartphone X200",
+        "image": "https://via.placeholder.com/300x200?text=Smartphone",
+        "price": "$699",
+        "category": "Electronics",
+        "originalPrice": "$799",
+        "rating": 4.8,
+        "reviews": 124,
+        "description": "Latest flagship smartphone with advanced camera system and lightning-fast performance.",
+        "features": [
+            "6.7-inch OLED Display",
+            "128GB Storage",
+            "Triple Camera System",
+            "5G Ready"
+        ],
+        "inStock": true,
+        "badge": "Best Seller"
+    },
+    {
+        "id": 2,
+        "name": "Bluetooth Speaker",
+        "image": "https://via.placeholder.com/300x200?text=Speaker",
+        "price": "$49",
+        "category": "Gadgets",
+        "originalPrice": "$69",
+        "rating": 4.5,
+        "reviews": 87,
+        "description": "Portable Bluetooth speaker with deep bass and long battery life.",
+        "features": [
+            "10W Output",
+            "Water Resistant",
+            "12-Hour Playtime",
+            "Bluetooth 5.0"
+        ],
+        "inStock": true,
+        "badge": "Popular"
+    },
+    {
+        "id": 3,
+        "name": "Air Purifier Pro",
+        "image": "https://via.placeholder.com/300x200?text=Air+Purifier",
+        "price": "$199",
+        "category": "Home & Kitchen",
+        "originalPrice": "$249",
+        "rating": 4.7,
+        "reviews": 65,
+        "description": "Advanced air purifier for clean and healthy indoor air.",
+        "features": [
+            "HEPA Filter",
+            "Smart Sensor",
+            "Silent Mode",
+            "Covers 500 sq ft"
+        ],
+        "inStock": true,
+        "badge": "Eco Friendly"
+    },
+    {
+        "id": 4,
+        "name": "Smartwatch Fit 3",
+        "image": "https://i.ibb.co.com/TM6sjKfF/2151039302.jpg",
+        "price": "$299",
+        "category": "Wearables",
+        "originalPrice": "$349",
+        "rating": 4.6,
+        "reviews": 102,
+        "description": "Fitness-focused smartwatch with heart rate and sleep tracking.",
+        "features": [
+            "AMOLED Display",
+            "GPS Tracking",
+            "Waterproof",
+            "7-Day Battery"
+        ],
+        "inStock": true,
+        "badge": "Trending"
+    },
+    {
+        "id": 5,
+        "name": "Wireless Charger",
+        "image": "https://via.placeholder.com/300x200?text=Charger",
+        "price": "$29",
+        "category": "Accessories",
+        "originalPrice": "$39",
+        "rating": 4.3,
+        "reviews": 54,
+        "description": "Fast wireless charger compatible with all Qi-enabled devices.",
+        "features": [
+            "15W Fast Charging",
+            "LED Indicator",
+            "Slim Design",
+            "Overheat Protection"
+        ],
+        "inStock": true,
+        "badge": "Hot Deal"
+    },
+    {
+        "id": 6,
+        "name": "Noise Cancelling Headphones",
+        "image": "https://via.placeholder.com/300x200?text=Headphones",
+        "price": "$149",
+        "category": "Gadgets",
+        "originalPrice": "$179",
+        "rating": 4.7,
+        "reviews": 98,
+        "description": "Premium headphones with active noise cancellation and rich sound.",
+        "features": [
+            "Active Noise Cancelling",
+            "Bluetooth 5.2",
+            "30-Hour Battery",
+            "Foldable Design"
+        ],
+        "inStock": true,
+        "badge": "Best Seller"
+    },
+    {
+        "id": 7,
+        "name": "Robot Vacuum",
+        "image": "https://via.placeholder.com/300x200?text=Robot+Vacuum",
+        "price": "$249",
+        "category": "Home & Kitchen",
+        "originalPrice": "$299",
+        "rating": 4.4,
+        "reviews": 76,
+        "description": "Smart robot vacuum with app control and powerful suction.",
+        "features": [
+            "App Control",
+            "Auto-Charging",
+            "HEPA Filter",
+            "Obstacle Detection"
+        ],
+        "inStock": true,
+        "badge": "Popular"
+    },
+    {
+        "id": 8,
+        "name": "Tablet Z10",
+        "image": "https://via.placeholder.com/300x200?text=Tablet",
+        "price": "$399",
+        "category": "Electronics",
+        "originalPrice": "$449",
+        "rating": 4.5,
+        "reviews": 59,
+        "description": "High-performance tablet for work and entertainment.",
+        "features": [
+            "10.5-inch Display",
+            "256GB Storage",
+            "Octa-Core Processor",
+            "Long Battery Life"
+        ],
+        "inStock": true,
+        "badge": "New Arrival"
+    },
+    {
+        "id": 9,
+        "name": "Fitness Tracker Band",
+        "image": "https://via.placeholder.com/300x200?text=Fitness+Band",
+        "price": "$59",
+        "category": "Wearables",
+        "originalPrice": "$79",
+        "rating": 4.2,
+        "reviews": 43,
+        "description": "Lightweight fitness tracker with step and sleep monitoring.",
+        "features": [
+            "Heart Rate Monitor",
+            "Sleep Tracking",
+            "Water Resistant",
+            "OLED Display"
+        ],
+        "inStock": true,
+        "badge": "Best Value"
+    },
+    {
+        "id": 10,
+        "name": "Smart Home Hub",
+        "image": "https://via.placeholder.com/300x200?text=Home+Hub",
+        "price": "$89",
+        "category": "Home & Kitchen",
+        "originalPrice": "$109",
+        "rating": 4.3,
+        "reviews": 38,
+        "description": "Central hub for controlling all your smart home devices.",
+        "features": [
+            "Voice Control",
+            "Wi-Fi Enabled",
+            "Multi-Device Support",
+            "Easy Setup"
+        ],
+        "inStock": true,
+        "badge": "Smart Choice"
+    },
+    {
+        "id": 11,
+        "name": "Portable Projector",
+        "image": "https://via.placeholder.com/300x200?text=Projector",
+        "price": "$279",
+        "category": "Gadgets",
+        "originalPrice": "$329",
+        "rating": 4.6,
+        "reviews": 51,
+        "description": "Compact projector for movies and presentations anywhere.",
+        "features": [
+            "1080p Resolution",
+            "Built-in Speaker",
+            "HDMI & USB",
+            "Lightweight"
+        ],
+        "inStock": true,
+        "badge": "Top Rated"
+    },
+    {
+        "id": 3,
+        "name": "Laptop Stand",
+        "image": "https://i.ibb.co.com/GQ4Mq1vQ/Gear-Branch-laptop-stand-SOURCE-Branch.jpg",
+        "price": "$89",
+        "category": "Accessories",
+        "originalPrice": "$99",
+        "rating": 4.4,
+        "reviews": 29,
+        "description": "Ergonomic laptop stand for comfortable working posture.",
+        "features": [
+            "Adjustable Height",
+            "Aluminum Build",
+            "Non-Slip Base",
+            "Portable"
+        ],
+        "inStock": true,
+        "badge": "Recommended"
+    },
+    {
+        "id": 13,
+        "name": "Smart Bulb Set",
+        "image": "https://via.placeholder.com/300x200?text=Smart+Bulbs",
+        "price": "$39",
+        "category": "Home & Kitchen",
+        "originalPrice": "$49",
+        "rating": 4.5,
+        "reviews": 34,
+        "description": "Set of smart bulbs with app and voice control.",
+        "features": [
+            "Color Changing",
+            "App Control",
+            "Energy Efficient",
+            "Easy Installation"
+        ],
+        "inStock": true,
+        "badge": "Best Seller"
+    },
+    {
+        "id": 14,
+        "name": "Gaming Mouse X",
+        "image": "https://via.placeholder.com/300x200?text=Gaming+Mouse",
+        "price": "$59",
+        "category": "Accessories",
+        "originalPrice": "$69",
+        "rating": 4.6,
+        "reviews": 47,
+        "description": "High-precision gaming mouse with customizable buttons.",
+        "features": [
+            "RGB Lighting",
+            "Adjustable DPI",
+            "Ergonomic Design",
+            "Programmable Buttons"
+        ],
+        "inStock": true,
+        "badge": "Gamer's Choice"
+    },
+    {
+        "id": 15,
+        "name": "4K Action Camera",
+        "image": "https://via.placeholder.com/300x200?text=Action+Camera",
+        "price": "$189",
+        "category": "Electronics",
+        "originalPrice": "$229",
+        "rating": 4.7,
+        "reviews": 56,
+        "description": "Rugged action camera for capturing adventures in 4K.",
+        "features": [
+            "4K Video",
+            "Waterproof",
+            "Wi-Fi Sharing",
+            "Image Stabilization"
+        ],
+        "inStock": true,
+        "badge": "Adventure"
+    },
+    {
+        "id": 16,
+        "name": "Wireless Headphones",
+        "image": "https://i.ibb.co.com/tTGC65xx/2150722661.jpg",
+        "price": "$199",
+        "category": "Electronics",
+        "originalPrice": "$249",
+        "rating": 4.8,
+        "reviews": 73,
+        "description": "High-fidelity wireless headphones with long battery life.",
+        "features": [
+            "Bluetooth 5.2",
+            "Noise Isolation",
+            "40-Hour Battery",
+            "Comfort Fit"
+        ],
+        "inStock": true,
+        "badge": "Premium"
+    },
+    {
+        "id": 17,
+        "name": "Coffee Maker",
+        "image": "https://i.ibb.co.com/1G4Nrrvy/2151083728.jpg",
+        "price": "$149",
+        "category": "Home & Kitchen",
+        "originalPrice": "$179",
+        "rating": 4.5,
+        "reviews": 61,
+        "description": "Automatic coffee maker for perfect brews every morning.",
+        "features": [
+            "Programmable Timer",
+            "12-Cup Capacity",
+            "Easy Cleaning",
+            "Thermal Carafe"
+        ],
+        "inStock": true,
+        "badge": "Kitchen Star"
+    }
+]

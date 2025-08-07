@@ -27,7 +27,7 @@ const Navbar = () => {
 
     return (
       <nav className="bg-white shadow-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-2 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Left: Logo & Mobile Menu */}
             <div className="flex flex-row-reverse items-center gap-2">
@@ -56,12 +56,12 @@ const Navbar = () => {
             </div>
 
             {/* Center: Menu (Desktop) */}
-            <div className="hidden lg:flex items-center md:gap-4 lg:gap-5 xl:gap-5">
+            <div className="hidden lg:flex items-center md:gap-4 lg:gap-5 xl:gap-8">
               {menuItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 hover:text-[var(--primary-color)] transition font-medium  py-1 rounded-md"
+                  className="text-gray-700 hover:text-[var(--primary-color)] transition font-semibold  py-1 rounded-md"
                 >
                   {item.label}
                 </Link>

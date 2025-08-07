@@ -169,12 +169,13 @@ type BannerProps = {
 
 export default function Banner({ products = heroProducts }: BannerProps) {
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+        <section className="relative  bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
             {/* Decorative Elements */}
             <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
             <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-200 rounded-full opacity-20 animate-bounce"></div>
             <div className="absolute top-1/2 left-20 w-16 h-16 bg-green-200 rounded-full opacity-30"></div>
-            <div className="container mx-auto px-6 py-20 flex items-center min-h-screen">
+            
+            <div className="container mx-auto px-6 py-20 flex items-center ">
                 <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
                     {/* Left Side */}
                     <div className="space-y-8 lg:pr-8">
