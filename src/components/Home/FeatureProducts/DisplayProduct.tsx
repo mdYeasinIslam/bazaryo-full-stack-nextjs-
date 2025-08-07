@@ -132,13 +132,13 @@ export default function DisplayProduct({
         {/* Add to Cart Button */}
         <button
           disabled={!product.inStock}
-          className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
+          className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
             product.inStock
-              ? "bg-[var(--primary-color)] text-white hover:bg-[var(--hover-color)]"
+              ? " bg-[var(--primary-color)] text-white hover:bg-white hover:text-black   border hover:border-green-800 duration-300"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
-          <CgShoppingCart className="w-4 h-4" />
+          <CgShoppingCart className="w-6 h-6" />
           <span>{product.inStock ? "Add to Cart" : "Out of Stock"}</span>
         </button>
       </div>

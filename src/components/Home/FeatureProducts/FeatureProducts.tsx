@@ -69,7 +69,7 @@ export default function FeaturedProducts() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProducts.map((product) => (
+          {featuredProducts?.slice(0,6).map((product) => (
             <DisplayProduct
               key={product.id}
               product={product}
@@ -83,7 +83,7 @@ export default function FeaturedProducts() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+          <button className="bg-white text-black border border-green-700 px-8 py-4 rounded-lg font-semibold hover:bg-green-900 hover:text-white duration-300 transition-colors">
             View All Products
           </button>
         </div>
