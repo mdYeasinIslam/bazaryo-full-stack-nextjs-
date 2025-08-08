@@ -12,7 +12,7 @@ const Navbar = () => {
     const user = { email: "h@gamil.com" };
 
     const menuItems = [
-        { href: "/home", label: "Home" },
+        { href: "/", label: "Home" },
         { href: "/about", label: "About" },
         { href: "/services", label: "Services" },
         { href: "/product-In", label: "Add Product" },
@@ -88,7 +88,7 @@ const Navbar = () => {
                     Sign Up
                   </Link>
                   <Link
-                    href="/logIn"
+                    href="/signIn"
                     className="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-[var(--hover-color)] transition"
                   >
                     Log In

@@ -21,33 +21,36 @@ const Footers = () => {
           <h3 className="font-semibold">Quick Links</h3>
           <ul className="list-none p-0 m-0 underline space-y-1">
             <li>
-              <a href="/" className="text-[#222] no-underline hover:underline">
+              <Link
+                href="/"
+                className="text-[#222] no-underline hover:underline"
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/events"
+              <Link
+                href="/about"
                 className="text-[#222] no-underline hover:underline"
               >
-                Events
-              </a>
+                About
+              </Link>
             </li>
             <li>
-              <a
-                href="/places"
+              <Link
+                href="/service"
                 className="text-[#222] no-underline hover:underline"
               >
-                Places
-              </a>
+                Service
+              </Link>
             </li>
             <li>
-              <a
-                href="map-view"
+              <Link
+                href="contact"
                 className="text-[#222] no-underline hover:underline"
               >
-                Map View
-              </a>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>

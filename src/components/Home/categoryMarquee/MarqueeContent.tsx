@@ -1,14 +1,8 @@
+import { CategoryType } from '@/types/productsType';
 import React from 'react'
 
 interface PropType {
-    category: {
-        id: number;
-        name: string;
-        icon: React.ReactNode;
-        productCount: string;
-        bgColor: string;
-        bgGradient: string;
-    }
+  category: CategoryType
 }
 
 export default function MarqueeContent({category}:PropType) {
