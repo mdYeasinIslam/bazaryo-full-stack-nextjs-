@@ -58,7 +58,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-color">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <CommonTitle
