@@ -169,7 +169,7 @@ type BannerProps = {
 
 export default function Banner({ products = heroProducts }: BannerProps) {
     return (
-      <section className="relative  bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+      <section className="relative  bg-gradient-to-br from-blue-50 via-white to-green-50 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-200 rounded-full opacity-20 animate-bounce"></div>
@@ -185,7 +185,7 @@ export default function Banner({ products = heroProducts }: BannerProps) {
               </div>
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  <span className="text-blue-600">ShopStack</span>
+                  <span className="text-blue-600">Bazaryo</span>
                   <br />
                   <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                     Products That
