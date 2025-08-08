@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Navbar from "@/components/shared/Navbar";
+import ImageSection from "@/components/auth/ImageSection";
 
 
 export const metadata: Metadata = {
@@ -15,9 +16,10 @@ export default function RootLayout({
 }>) {
   return (
       <main
-        className={` antialiased`}
+        className={` antialiased h-full grid grid-cols-1 md:grid-cols-2 `}
       >
-        {/* <Navbar /> */}
+      {/* <Navbar /> */}
+      <ImageSection/>
         {children}
       </main>
   );

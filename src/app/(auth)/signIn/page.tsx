@@ -5,9 +5,10 @@ import React from "react";
 import logo from "../../../../public/logo.png";
 import Link from "next/link";
 const page = () => {
+
   return (
     <section>
-      <div className="  mx-auto flex flex-col-reverse md:flex-row items-center justify-center h-screen gap-10 px-4 md:px-0">
+      <div className="  mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:h-screen gap-10 px-4 md:px-0">
         {/* form section */}
         <div className="flex-1 flex flex-col items-center justify-center bg-white rounded-lg  px-10 py-12 w-full ">
           <h1 className="text-3xl font-bold mb-2 text-gray-800">Login</h1>
@@ -70,24 +71,7 @@ const page = () => {
         </div>
 
         {/* img section */}
-        <div className=" flex-1 h-full flex  mt-5 md:mt-0 bg-[#F3EEE7] w-full justify-center items-center  ">
-          <div>
-            <div className="flex  flex-col justify-center items-center gap-5">
-              <figure className="flex items-center justify-center">
-                <Image
-                  src={logo}
-                  alt="Login Illustration"
-                  width={500}
-                  height={500}
-                  className="w-24 h-24 object-cover rounded-lg shadow-md"
-                />
-              </figure>
-              <h1 className="text-4xl pb-5 lg:text-7xl font-laila font-semibold">
-                Bazaryo
-              </h1>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );
