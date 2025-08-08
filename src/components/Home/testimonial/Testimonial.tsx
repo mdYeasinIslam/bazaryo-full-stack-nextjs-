@@ -98,7 +98,7 @@ const Testimonials = () => {
               <div
                 key={index}
                 style={{ flex: `0 0 ${100 / visibleItems}%` }}
-                className="px-3 h-[350px]" // <-- add this class for spacing
+                className="px-3 h-[380px] md:h-[350px]" // <-- add this class for spacing
               >
                 <TestimonialCard testimonial={testimonial} />
               </div>
