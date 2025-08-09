@@ -6,7 +6,13 @@ export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
     await connectMongoose();
-    const findUser = await SignUpModel.findOne({ email: email });
+    const findUser = await SignUpModel.findOne({ email, password });
+    console.log(findUser)
+    if (findUser == null) {
+      return NextResponse.json({
+        error: "email/password is not correct! please enter correctly",
+      });
+    }
     return NextResponse.json(
       { user: findUser, message: "You are successfully logged in" },
       { status: 201 }

@@ -1,8 +1,5 @@
-import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
-
 import React from "react";
-import logo from "../../../../public/logo.png";
 import Link from "next/link";
 const page = () => {
 
@@ -77,9 +74,6 @@ const page = () => {
             </Link>
           </h1>
         </div>
-
-        {/* img section */}
-    
       </div>
     </section>
   );
