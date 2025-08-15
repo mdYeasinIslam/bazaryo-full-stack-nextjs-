@@ -19,8 +19,8 @@ const userSchema = new Schema<UserInterface>(
     password: {
       type: String,
       require: true,
-      minLength: [4, 'Password length should have at least 4'],
-      maxLength:[8,'Password lenght should less than 8'],
+      // minLength: [4, 'Password length should have at least 4'],
+      // maxLength:[8,'Password lenght should less than 8'],
       trim: true,
     },
     role: {
