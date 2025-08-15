@@ -2,8 +2,11 @@
 import { FcGoogle } from "react-icons/fc";
 import React, { FormEvent, useState } from "react";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 const page = () => {
-  const [error,setError] = useState('')
+  const [error, setError] = useState('')
+  const route = useRouter()
   const formHandler = async(e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -20,9 +23,17 @@ const page = () => {
         body: JSON.stringify(data)
       });
       const result = await response.json();
-      if(result?.error) setError(result.error)
+      if (result?.error) setError(result.error)
+      if (result?.message) {
+        setError('')
+        route.push('/')
+        toast.success('You are successfully logged-in')
+      }
+      
+      
       } catch (error) {
-    console.error("Error during sign in:", error);
+      console.error("Error during sign in:", error);
+      setError(`Error : ${error}`);
   }
 }
 console.log(error);

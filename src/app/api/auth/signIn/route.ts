@@ -1,13 +1,14 @@
 import connectMongoose from "@/libs/mongodb";
-import { SignUpModel } from "@/models/auth";
+import { UserModel } from "@/models/auth";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
     await connectMongoose();
-    const findUser = await SignUpModel.findOne({ email, password });
+    const findUser = await UserModel.findOne({ email, password });
     console.log(findUser)
+    
     if (findUser == null) {
       return NextResponse.json({
         error: "email/password is not correct! please enter correctly",
