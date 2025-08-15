@@ -1,33 +1,45 @@
 import connectMongoose from "@/libs/mongodb";
 import { UserModel } from "@/models/auth";
-import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcrypt";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: NextApiRequest, res: NextApiResponse) {
+export async function POST(request: NextRequest, res: NextResponse) {
   if (request.method !== "POST")
-    return res.status(405).json({ message: "Method is not allowed" });
-  try {
-    const { name, email, password, role } = request.body;
-    if (!name || !email || !password)
-      return res.status(400).json({ message: "All field is required" });
+    return NextResponse.json({ message: "Method is not allowed" }, { status: 405 });
 
+  try {
     await connectMongoose();
-    const existingUser = await UserModel.findOne(email);
+
+    const { name, email, password, role } =await request?.json();
+    // console.log(name,email,password)
+    if (!name || !email || !password)
+      return NextResponse.json({
+        message: "All fields are required",
+      },{status:400});
+
+    const existingUser = await UserModel.findOne({ email: email });
+    
     if (existingUser)
-      return res.status(400).json({ message: "Email already registered" });
+      return NextResponse.json(
+        { message: "Email already registered" },
+        { status: 400 }
+      );
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await UserModel.create({
       name,
       email,
-      password:hashedPassword,
+      password: hashedPassword,
       role: role ? role : "user",
     });
-    return res.status(201).json(
-      { message: "Account is created successfully",user:newUser}
-    );
+    return NextResponse.json({
+      message: "Account is created successfully",
+      user: newUser,
+    },{status:200});
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error", error: error });
+    console.log(error)
+    return NextResponse
+      .json({ message: "Internal server error", error: error },{status:500});
   }
 }
