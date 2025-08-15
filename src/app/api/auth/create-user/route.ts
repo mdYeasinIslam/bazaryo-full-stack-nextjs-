@@ -7,11 +7,12 @@ export async function POST(request: NextApiRequest, res: NextApiResponse) {
   if (request.method !== "POST")
     return res.status(405).json({ message: "Method is not allowed" });
   try {
+    await connectMongoose();
+
     const { name, email, password, role } = request.body;
     if (!name || !email || !password)
-      return res.status(400).json({ message: "All field is required" });
+      return res.status(400).json({ message: "All fields are required" });
 
-    await connectMongoose();
     const existingUser = await UserModel.findOne(email);
     if (existingUser)
       return res.status(400).json({ message: "Email already registered" });
