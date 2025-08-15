@@ -1,20 +1,33 @@
-import connectMongoose from "@/libs/mongodb"
-import { SignUpModel } from "@/models/auth";
-import { NextRequest, NextResponse } from "next/server";
+import connectMongoose from "@/libs/mongodb";
+import { UserModel } from "@/models/auth";
+import { NextApiRequest, NextApiResponse } from "next";
+import bcrypt from "bcrypt";
 
-export async function POST(request: NextRequest) {
-   try {
-       const { name,email, password,role} = await request.json()
-       await connectMongoose();
-       if (name && email && password) {
-        await SignUpModel.create({ name, email, password,role:role?role:'user'});
-        return NextResponse.json({message:"Your account is successfully created"},{status:201})
-       }
-       return NextResponse.json({message:'Data is required'})
-   } catch (error) {
-    return NextResponse.json(
-      { message: "An error is occured",error:error }
+export async function POST(request: NextApiRequest, res: NextApiResponse) {
+  if (request.method !== "POST")
+    return res.status(405).json({ message: "Method is not allowed" });
+  try {
+    const { name, email, password, role } = request.body;
+    if (!name || !email || !password)
+      return res.status(400).json({ message: "All field is required" });
+
+    await connectMongoose();
+    const existingUser = await UserModel.findOne(email);
+    if (existingUser)
+      return res.status(400).json({ message: "Email already registered" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await UserModel.create({
+      name,
+      email,
+      password:hashedPassword,
+      role: role ? role : "user",
+    });
+    return res.status(201).json(
+      { message: "Account is created successfully",user:newUser}
     );
-   }
-   
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error", error: error });
+  }
 }

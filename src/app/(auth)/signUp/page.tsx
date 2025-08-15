@@ -1,9 +1,33 @@
+'use client'
 import { FcGoogle } from "react-icons/fc";
-import React from "react";
+import React, { FormEvent, useState } from "react";
 import Link from "next/link";
 const page = () => {
 
-
+const [error,setError] = useState('')
+  const formHandler = async(e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name =form.get('name')
+    const email = form.get('email')
+    const password = form.get('password')
+    const data = {name, email, password }
+    console.log(data)
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/signIn", {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      if(result?.error) setError(result.error)
+      } catch (error) {
+    console.error("Error during sign in:", error);
+  }
+}
+console.log(error);
   return (
     <section>
       <div className="  mx-auto flex flex-col-reverse md:flex-row items-center justify-center h-screen gap-10 px-4 md:px-0">
@@ -12,12 +36,14 @@ const page = () => {
           <h1 className="text-3xl font-bold mb-2 text-gray-800">Register</h1>
           <form className="w-full flex flex-col gap-4 max-w-md">
             {/* username */}
+            {error.length > 0 && <div className="text-red-500">{error}</div>}
             <div className="w-full">
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Alex Gold"
                 className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
@@ -30,6 +56,7 @@ const page = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
@@ -41,6 +68,7 @@ const page = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
                 className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
