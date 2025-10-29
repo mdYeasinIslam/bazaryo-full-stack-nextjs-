@@ -1,0 +1,23 @@
+Focused lessons (must practice)
+  1. Ant design (form)
+  2. Axios (instance, interceptop)
+  3. tanstack query ( useQuery, mutation, refetch, refetch-interval, onSettler, enable etc.)
+  4. Sass 
+  5. custom hook
+  5. follow project approach; (folder structure like @modules, @base etc.)
+
+First part: (30 october, 2025--insa-allah)
+ 1. fix navbar routes by protect private routes
+ 2. complete authentication part (Ant form, axios- instance & interceptop, mutation)
+ 3. after login, user navigate to dashboard
+
+Second part: (31 october,2025 ------in-sa-allah)
+ 1. dashboard navItems 
+ 2. dashboard overview page 
+ 3. product add page
+
+Third part: (31 october,2025 ------insa-allah)
+ 1. display product in tabular format
+ 2. single product page (details page)
+ 3. product can be update and remove
+ 

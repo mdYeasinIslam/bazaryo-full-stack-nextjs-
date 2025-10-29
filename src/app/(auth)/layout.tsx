@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import Navbar from "@/components/shared/Navbar";
-import ImageSection from "@/components/auth/ImageSection";
+import Navbar from "@/@base/components/Navbar";
+import ImageSection from "@/@modules/auth/components/ImageSection";
 
 
 export const metadata: Metadata = {

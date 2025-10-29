@@ -13,13 +13,13 @@ export default function TestimonialCard ({
 })  {
   return (
     <div className="relative w-[200px] md:w-[450px]   bg-white bg-[url(/cardBg.png)] bg-no-repeat bg-cover py-14 px-1 md:px-10 rounded-xl shadow-md">
-      <div className="absolute top-6 right-8">
+      <div className="">
         <Image
           src="/testimonial-coma.png"
           alt="quote"
           width={40}
           height={40}
-          className="w-10 h-10 object-cover"
+          className=" absolute top-6 right-8 w-10 h-10 object-cover"
         />
       </div>
       <h3 className="text-xl font-bold text-[#2a0903]">{testimonial.name}</h3>

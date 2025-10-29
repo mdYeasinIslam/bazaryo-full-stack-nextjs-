@@ -1,9 +1,9 @@
-import Banner from "@/components/Home/banner/Banner";
-import CategoryMarquee from "@/components/Home/categoryMarquee/CategoryMarquee";
-import CTASection from "@/components/Home/CTA-section/CTASection";
-import FeaturedProducts from "@/components/Home/FeatureProducts/FeatureProducts";
-import Testimonials from "@/components/Home/testimonial/Testimonial";
-import WhyChooseUs from "@/components/Home/why-choose-us/WhyChoose";
+import Banner from "@/@modules/home/components/Banner";
+import CategoryMarquee from "@/@modules/home/components/CategoryMarquee";
+import CTASection from "@/@modules/home/components/CTASection";
+import FeaturedProducts from "@/@modules/home/components/FeatureProducts";
+import Testimonials from "@/@modules/home/components/Testimonial";
+import WhyChooseUs from "@/@modules/home/components/WhyChoose";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <FeaturedProducts />
       <WhyChooseUs />
       <Testimonials />
-      <CTASection/>
+      <CTASection />
     </div>
   );
 }

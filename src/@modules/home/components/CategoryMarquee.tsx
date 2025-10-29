@@ -13,8 +13,8 @@ import {
   MdChildCare,
   MdCardGiftcard,
 } from "react-icons/md";
+import CommonTitle from "@/@base/components/CommonTitle";
 import MarqueeContent from "./MarqueeContent";
-import CommonTitle from "@/components/shared/CommonTitle";
 
 const categories = [
   {
