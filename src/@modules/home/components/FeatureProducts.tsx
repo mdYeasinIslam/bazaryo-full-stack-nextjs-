@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import DisplayProduct from "./DisplayProduct";
 import { ProductType } from "@/types/productsType";
 import ProductModal from "@/components/Products/Modal/ProductModal";
-import CommonTitle from "@/components/shared/CommonTitle";
+import CommonTitle from "@/@base/components/CommonTitle";
 
 export default function FeaturedProducts() {
   const [featuredProducts, setFeaturedProducts] = useState<ProductType[]>([]);

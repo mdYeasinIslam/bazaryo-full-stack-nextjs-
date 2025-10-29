@@ -13,7 +13,7 @@ const userSchema = new Schema<UserInterface>(
       type: String,
       require: true,
       uniqure: [true, "Email is already used"],
-      validate:[validator.isEmail,'Invalid email is send {VALUE}'],
+      validate: [validator.isEmail, "Invalid email is send {VALUE}"],
       trim: true,
     },
     password: {
@@ -27,7 +27,12 @@ const userSchema = new Schema<UserInterface>(
       type: String,
       trim: true,
       enum: ["user", "admin", "seller"],
-      default:"user"
+      default: "user",
+    },
+    provider: {
+      type: String,
+      enum: ["credentials", "google"],
+      default: "credentials",
     },
   },
   {

@@ -111,7 +111,7 @@ const Footers = () => {
         </div>
       </div>
       <div className="text-center text-[#888] text-[15px] mt-12 mb-2">
-        © 2025 EventTap. All rights reserved.
+        © 2025 Bazaryo. All rights reserved.
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import CommonTitle from "@/components/shared/CommonTitle";
+import CommonTitle from "@/@base/components/CommonTitle";
 import { BiCheckCircle, BiCreditCard, BiShield, BiStar } from "react-icons/bi";
 import { BsClock, BsHeadphones, BsTruck } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";

@@ -5,4 +5,5 @@ export interface UserInterface extends Document {
   email: string;
   password: string;
   role: "user" | "admin" | "seller";
+  provider: "credentials" | 'google'
 }
