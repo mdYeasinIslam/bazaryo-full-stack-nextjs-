@@ -1,13 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
+
+import { Button, Grid, Layout, Menu, theme } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import { paths } from "@/@libs/constants/paths";
@@ -15,81 +9,72 @@ import { FaUser } from "react-icons/fa";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import MainMenu from "./menu/MainMenu";
+import useResize from "@/@libs/hooks/useResize";
 // import logo from "/logo.png";
 
 const { Header, Sider, Content } = Layout;
 
 const AdminLayout: React.FC = () => {
-  const pathName = usePathname()
+  const pathName = usePathname();
+  const { elemRef: headerRef, height: headerHeight } = useResize();
+  const screenSize = Grid.useBreakpoint();
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  
-   const styles: any = {
-     header: {
-       position: "relative",
-       right: 0,
-       width: "100%",
-       height: "auto",
-       display: "flex",
-       alignItems: "center",
-       justifyContent: "space-between",
-      //  background: "#fff",
-       
-       paddingInline: "1rem",
-       zIndex: 99,
-       paddingTop: 20,
-       paddingBottom: 20,
-       background: colorBgContainer,
-     },
-     //  sider: {
-     //    position: "fixed",
-     //    top: headerHeight,
-     //    left: !screens.md && isCollapsed ? "-100%" : 0,
-     //    paddingLeft: screens.md ? 16 : 0,
-     //    height: `calc(100vh - ${headerHeight}px)`,
-     //    background: isLight ? "#fff" : "#1f1f1f",
-     //    zIndex: 100,
-     //  },
-     //  menuWrapper: {
-     //    display: "flex",
-     //    flexDirection: "column",
-     //    height: "100%",
-     //    paddingBlock: 32,
-     //    overflowY: "auto",
-     //  },
-     //  layout: {
-     //    background: isLight ? "#fff" : "#1f1f1f",
-     //    paddingLeft: !screens.md ? 0 : isCollapsed ? 100 : 220,
-     //  },
-     //  content: {
-     //    paddingTop: headerHeight + 10,
-     //    paddingBottom: `calc(32px + ${footerHeight}px)`,
-     //  },
-     //  footer: {
-     //    position: "fixed",
-     //    left: 0,
-     //    bottom: 0,
-     //    width: "100%",
-     //    textAlign: "center",
-     //    paddingBlock: 16,
-     //    paddingLeft: !screens.md ? 0 : isCollapsed ? 100 : 300,
-     //    background: isLight ? "#fff" : "#1f1f1f",
-     //  },
-   };
+  console.log(headerHeight);
+  const styles: any = {
+    header: {
+      position: "fixed",
+      right: 0,
+      width: "100%",
+      height: "auto",
+      display: "flex",
+      alignItems: "center",
+      // justifyContent: "space-between",
+      // background: isLight ? "#fff" : "#1f1f1f",
+      background: "#fff",
+      gap: "1rem",
+      paddingInline: collapsed ? "2rem" : "3rem",
+      paddingTop: 10,
+      paddingBottom:10,
+
+      zIndex: 99,
+    },
+    slider: {
+      position: "fixed",
+      paddingTop: headerHeight * 1.5,
+      left: !screenSize.md && collapsed ? "-100%" : 0,
+      paddingLeft: screenSize.md ? 16 : 0,
+      height: `calc(100vh)`,
+      // background: isLight ? "#fff" : "#1f1f1f",
+      background: "#fff",
+
+      zIndex: 90,
+    },
+    menuWrapper: {
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+      paddingBlock: 32,
+      overflowY: "auto",
+    },
+    layout: {
+      // background: isLight ? "#fff" : "#1f1f1f",
+      background: "#F5F5F5",
+
+      paddingLeft: !screenSize.md ? 0 : collapsed ? 100 : 220,
+    },
+    content: {
+      paddingTop: headerHeight * 1.5,
+      // paddingBottom: `calc(32px + ${footerHeight}px)`,
+    },
+  };
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Layout.Header style={styles.header}>
-        <div
-          className={`demo-logo-vertical  flex justify-between  items-center  gap-10 ${
-            collapsed ? "" : "   rounded-md"
-          }  `}
-        >
-          <Link
-            href={paths?.admin?.root}
-            className="h-full w-full flex items-center"
-          >
+      <Layout.Header style={styles.header} ref={headerRef}>
+        <div className={` flex items-center justify-center `}>
+          <Link href={paths?.admin?.root} className="flex justify-end gap-1">
             <Image
               src="/logo.png"
               alt="shop logo"
@@ -98,49 +83,39 @@ const AdminLayout: React.FC = () => {
               className="w-8 h-8"
             />
             <h2
-              className={`ml-2 text-2xl font-bold text-(--primary-color-900) duration-300 hover:text-(--primary-color-800)  ${
-                collapsed ? "hidden" : "flex"
+              className={` text-4xl font-bold text-(--primary-color-900)  hover:text-(--primary-color-800)  ${
+                collapsed ? "hidden " : "block"
               }`}
             >
               Bazaryo
             </h2>
           </Link>
-          <Button type="text" onClick={() => setCollapsed(!collapsed)}>
+        </div>
+        <div className="w-full  flex items-center justify-between">
+          <Button
+            type="text"
+            className=" "
+            onClick={() => setCollapsed(!collapsed)}
+          >
             <MdOutlineKeyboardDoubleArrowRight
               size={24}
               className={collapsed ? "rotate-0" : "rotate-180"}
             />
           </Button>
-        </div>
-        <div>
           <FaUser />
         </div>
       </Layout.Header>
-      <Layout>
+      <Layout style={styles.layout}>
         <Layout.Sider
           trigger={null}
           collapsible
           collapsed={collapsed}
-          style={{
-            backgroundColor: "var(--background)",
-            paddingRight: "10px",
-            paddingLeft: "10px",
-          }}
+          style={styles.slider}
           onCollapse={(value) => setCollapsed(value)}
         >
           <MainMenu defaultSelectedKeys={[pathName]} />
         </Layout.Sider>
-        <Layout.Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-          }}
-        >
-          Content
-        </Layout.Content>
+        <Layout.Content style={styles.content}>Content</Layout.Content>
       </Layout>
     </Layout>
   );
