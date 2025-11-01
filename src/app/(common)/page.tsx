@@ -12,7 +12,7 @@ export default function Home() {
       <CategoryMarquee />
       <FeaturedProducts />
       <WhyChooseUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CTASection />
     </div>
   );

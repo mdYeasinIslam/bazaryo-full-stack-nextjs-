@@ -62,7 +62,7 @@ export default function DisplayProduct({
         <img
           src={product.image || "/placeholder.svg"}
           alt={product.name}
-          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-64 group-hover:scale-110 transition-transform duration-500 object-center object-fill"
         />
 
         {/* Hover Overlay */}
@@ -134,7 +134,7 @@ export default function DisplayProduct({
           disabled={!product.inStock}
           className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
             product.inStock
-              ? " bg-[var(--primary-color)] text-white hover:bg-white hover:text-black   border hover:border-green-800 duration-300"
+              ? " bg-[var(--primary-color-700)] text-white hover:bg-white hover:text-black   border hover:border-green-800 duration-300"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >

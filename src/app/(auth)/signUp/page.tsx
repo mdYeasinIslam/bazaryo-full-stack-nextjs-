@@ -76,7 +76,7 @@ console.log(error);
 
             <button
               type="submit"
-              className="bg-[var(--primary-color)] text-white font-semibold rounded py-3 mt-2 hover:bg-[var(--hover-color)] transition"
+              className="bg-[var(--primary-color-700)] text-white font-semibold rounded py-3 mt-2 hover:bg-[var(--hover-color)] transition"
             >
               Register
             </button>
@@ -86,7 +86,7 @@ console.log(error);
           <div className="w-full flex flex-col max-w-md">
             <button
               type="button"
-              className="flex items-center justify-center gap-2 bg-white border border-green-900 hover:bg-[var(--primary-color)] text-gray-500 font-semibold rounded py-3 mt-4 hover:text-white transition"
+              className="flex items-center justify-center gap-2 bg-white border border-green-900 hover:bg-[var(--primary-color-700)] text-gray-500 font-semibold rounded py-3 mt-4 hover:text-white transition"
             >
               <FcGoogle className="text-xl" />
               <span className="text-sm">Sign in with Google</span>
@@ -96,7 +96,7 @@ console.log(error);
             Already have an account?{" "}
             <Link
               href="signIn"
-              className="text-[var(--primary-color)] hover:underline pl-1 font-medium"
+              className="text-[var(--primary-color-700)] hover:underline pl-1 font-medium"
             >
               Sign In..
             </Link>

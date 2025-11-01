@@ -1,4 +1,4 @@
-import connectMongoose from "@/libs/mongodb";
+import connectMongoose from "@/@libs/config/mongodb";
 import { UserModel } from "@/models/auth";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'

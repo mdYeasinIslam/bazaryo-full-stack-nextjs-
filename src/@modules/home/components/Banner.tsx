@@ -169,13 +169,13 @@ type BannerProps = {
 
 export default function Banner({ products = heroProducts }: BannerProps) {
     return (
-      <section className="relative  bg-gradient-to-br from-blue-50 via-white to-green-50 overflow-hidden">
+      <section className="relative py-5 bg-linear-to-br from-blue-50 via-white to-green-50 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-200 rounded-full opacity-20 animate-bounce"></div>
         <div className="absolute top-1/2 left-20 w-16 h-16 bg-green-200 rounded-full opacity-30"></div>
 
-        <div className="container mx-auto px-6 py-20 flex items-center ">
+        <div className="container mx-auto px-6  flex items-center ">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Side */}
             <div className="space-y-8 lg:pr-8">
@@ -199,7 +199,7 @@ export default function Banner({ products = heroProducts }: BannerProps) {
                 with confidence or start selling your own products today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-[var(--primary-color)] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[var(--hover-color)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+                <button className="bg-[var(--primary-color-700)] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[var(--hover-color)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
                   <CgShoppingCart className="w-5 h-5 mr-2" />
                   Shop Now
                 </button>

@@ -144,7 +144,7 @@ export default function ProductModal({
                 disabled={!selectedProduct.inStock}
                 className={`w-full py-4 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
                   selectedProduct.inStock
-                    ? "bg-[var(--primary-color)] text-white hover:bg-[var(--hover-color)]"
+                    ? "bg-[var(--primary-color-700)] text-white hover:bg-[var(--hover-color)]"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
               >

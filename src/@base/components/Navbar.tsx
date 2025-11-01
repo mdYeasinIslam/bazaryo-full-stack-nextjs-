@@ -1,24 +1,23 @@
 "use client";
 import React, { useState } from "react";
-import logo from "../../../public/logo.png";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
-import { BiSearchAlt2 } from "react-icons/bi";
 import Link from "next/link";
 import Image from "next/image";
+import { paths } from "@/@libs/constants/paths";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const user = { email: "h@gamil.com" };
-
+  console.log(paths.root);
   const menuItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/product-In", label: "Add Product" },
-    { href: "/product-out", label: "Display Product" },
-    { href: "/order", label: "Orders" },
-    { href: "/contact", label: "Contact" },
+    { href: paths.root, label: "Home" },
+    { href: paths?.publicRoot?.about, label: "About" },
+    // { href: "/services", label: "Services" },
+    // { href: "/add-product", label: "Add Product" },
+    // { href: "/product-out", label: "Display Product" },
+    // { href: "/order", label: "Orders" },
+    { href: paths?.publicRoot?.contact, label: "Contact" },
   ];
 
   const signOut = () => {
@@ -26,14 +25,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="container mx-auto px-4 sm:px-2 lg:px-8">
+    <nav className=" shadow-md  w-full">
+      <div className="container mx-auto bg-[#F8F8FC] px-4 sm:px-2 lg:px-8  fixed z-50 ">
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo & Mobile Menu */}
           <div className="flex flex-row-reverse items-center gap-2">
-            <Link href="/" className="flex items-center">
+            <Link href={paths?.root} className="flex items-center">
               <Image
-                src={logo}
+                src={"/logo.png"}
                 alt="shop logo"
                 width={500}
                 height={500}
@@ -61,7 +60,7 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-[var(--primary-color)] transition font-semibold  py-1 rounded-md"
+                className="text-gray-700 hover:text-(--primary-color-700) transition font-semibold  py-1 rounded-md"
               >
                 {item.label}
               </Link>
@@ -70,29 +69,24 @@ const Navbar = () => {
 
           {/* Right: Search & Auth */}
           <div className="flex items-center gap-1 md:gap-2">
-            <div>
-              <BiSearchAlt2 className="w-6 h-6 text-slate-800 hover:text-[var(--primary-color)] cursor-pointer" />
-              <input type="search" name="" id="" className="border" />
-            </div>
             {!user?.email ? (
-              <Link
-                href="/logIn"
+              <button
                 onClick={signOut}
-                className="bg-[var(--primary-color)]  text-white px-4 py-2 rounded-md font-semibold hover:bg-[var(--hover-color)] transition"
+                className="bg-(--primary-color-700)  text-white px-4 py-2 rounded-md font-semibold hover:var(--hover-color) transition"
               >
                 Log Out
-              </Link>
+              </button>
             ) : (
               <>
                 <Link
-                  href="/signUp"
+                  href={paths?.auth?.signUp}
                   className="text-green-800 bg-green-100 font-semibold px-2 md:px-3 py-2 rounded-md hover:bg-green-200 transition"
                 >
                   Sign Up
                 </Link>
                 <Link
-                  href="/signIn"
-                  className="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-[var(--hover-color)] transition"
+                  href={paths?.auth?.login}
+                  className="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-(--hover-color) transition"
                 >
                   Log In
                 </Link>
@@ -133,14 +127,14 @@ const Navbar = () => {
                   <div className="flex flex-col space-y-2">
                     <Link
                       href="/signUp"
-                      className="block bg-green-100 text-[var(--primary-color)] font-semibold px-3 py-2 rounded-md hover:bg-green-200 transition"
+                      className="block bg-green-100 text-[var(--primary-color-700)] font-semibold px-3 py-2 rounded-md hover:bg-green-200 transition"
                       onClick={() => setShow(false)}
                     >
                       Sign Up
                     </Link>
                     <Link
                       href="/logIn"
-                      className="block bg-[var(--primary-color)] text-white px-4 py-2 rounded-md font-semibold hover:bg-[var(--hover-color)] transition"
+                      className="block bg-[var(--primary-color-700)] text-white px-4 py-2 rounded-md font-semibold hover:bg-[var(--hover-color)] transition"
                       onClick={() => setShow(false)}
                     >
                       Log In
