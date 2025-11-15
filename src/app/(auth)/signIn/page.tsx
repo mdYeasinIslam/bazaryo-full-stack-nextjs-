@@ -18,42 +18,24 @@ const Page = () => {
   const signInFn = useSignIn({
     config: {
       onSuccess(data) {
-        console.log(data);
+        if (!data) return;
+        console.log(data.user)
         storage.setData("token", data?.token);
         messageApi.loading('Welcome to Bazaryo', 1).then(() => {
+          if (data?.user?.role === 'admin') {
+           return route.push('/admin')
+          }
           route.push('/')
         })
+      },
+      onError(error) {
+         messageApi.error(`${error.message}`, 1)
       },
     },
   });
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     const { email, password } = values;
     signInFn.mutate({ email, password });
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:3000/api/auth/signIn",
-    //     values
-    //   );
-    //   const result = await response.data;
-
-    //   if (result?.success) {
-    //     console.log(result)
-    //     localStorage.setItem('token',result.token)
-    //     messageApi.success({
-    //       type: "success",
-    //       content: "You are successfully logged-in",
-    //     });
-    //     route.push("/");
-    //   }
-    //   if (result?.error) {
-    //     messageApi.error({
-    //       type: "error",
-    //       content: result?.error,
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.error("Error during sign in:", error);
-    // }
   };
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (error) => {
     console.log(error);

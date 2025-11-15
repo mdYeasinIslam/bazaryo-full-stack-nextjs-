@@ -12,9 +12,14 @@ export const AuthServices = {
         payload
       );
       return Promise.resolve(response.data);
-    } catch (error) {
-      console.error("Error during sign in:", error);
-      throw error;
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error) && error.response) {
+        const { response } = error;
+        console.error("Sign in error:", response.data);
+        throw { status: response.status, message: response.data?.message };
+      }
+      console.error("Unknown error during sign in:", error);
+      throw {message:'Something went wrong!!'};
     }
   },
   signUp: async (payload: ISignUp) => {
@@ -24,8 +29,14 @@ export const AuthServices = {
         payload
       );
       return Promise.resolve(res.data);
-    } catch (error) {
-      throw error;
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error) && error.response) {
+        const { response } = error;
+        console.error("Sign Up error:", response.data);
+        throw { status: response.status, message: response.data?.message };
+      }
+      console.error("Unknown error during sign in:", error);
+      throw { message: "Something went wrong!!" };
     }
   },
 };

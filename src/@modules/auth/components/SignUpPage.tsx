@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 type FieldType = {
   userName: string;
-  email:string
+  email: string;
   password: string;
   remember?: string;
 };
@@ -18,17 +18,26 @@ const SignUpPage = () => {
 
   const signUpFn = useSignUp({
     config: {
-    onSuccess(data) {
-        console.log(data)
+      onSuccess(data) {
+        console.log(data);
+        if (!data) return;
+        messageApi
+          .loading("User created successfully")
+          .then(() => router.push("/signIn"));
+      },
+      onError(error) {
+        console.log(error);
+        messageApi.error(`${error.message}`, 1);
+      },
     },
-  }
-})
+  });
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
-    const {userName,email,password} = values
-    signUpFn.mutate({ userName, email, password })
-    messageApi
-      .loading("User created successfully")
-      .then(() => router.push("/signIn"));
+    const { userName, email, password } = values;
+    if (email.toLowerCase().includes('admin')) {
+      signUpFn.mutate({ userName, email, password, role: "admin" });
+    } else {
+      signUpFn.mutate({ userName, email, password });
+    }
   };
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (error) => {
     console.log(error);

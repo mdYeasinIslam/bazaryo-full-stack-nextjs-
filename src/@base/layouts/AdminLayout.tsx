@@ -1,20 +1,35 @@
 "use client";
-import React, { ReactNode, useState } from "react";
+import React, { PropsWithChildren, ReactNode, useState } from "react";
 
 import { paths } from "@/@libs/constants/paths";
 import useResize from "@/@libs/hooks/useResize";
-import { Button, Grid, Layout, theme } from "antd";
+import { Avatar, Button, Dropdown, Grid, Layout, MenuProps, message, theme } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import MainMenu from "./menu/MainMenu";
+import { AiOutlineLogout } from "react-icons/ai";
+import { storage } from "@/@libs/utils/storage";
 // import logo from "/logo.png";
-interface IProp extends React.PropsWithChildren {
   
-}
-const AdminLayout: React.FC<IProp> = ({children}) => {
+
+const items: MenuProps["items"] = [
+  {
+    key: "Signout",
+    icon: <AiOutlineLogout className="text-black" />,
+    label: (
+      <span className="flex items-center gap-2 text-black hover:text-(--primary-color-800) transition-colors duration-200">
+        Sign out
+      </span>
+    ),
+    // onClick: signOutFn,
+    disabled: false,
+    className: "hover:bg-(--primary-color-800)",
+  },
+];
+const AdminLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const pathName = usePathname();
   const { elemRef: headerRef, height: headerHeight } = useResize();
   const screenSize = Grid.useBreakpoint();
@@ -65,6 +80,16 @@ const AdminLayout: React.FC<IProp> = ({children}) => {
       paddingTop: headerHeight + 10,
     },
   };
+  const handleMenuClick: MenuProps["onClick"] = () => {
+    message.info("Click on menu item.");
+    console.log("click");
+    storage.removeItem('token')
+    window.location.reload()
+  };
+  const menuProps = {
+    items,
+    onClick: handleMenuClick,
+  };
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout.Header style={styles.header} ref={headerRef}>
@@ -93,7 +118,28 @@ const AdminLayout: React.FC<IProp> = ({children}) => {
               className={collapsed ? "rotate-0" : "rotate-180"}
             />
           </Button>
-          <FaUser />
+          <Dropdown
+            menu={menuProps}
+            trigger={["click"]}
+            placement="bottomRight"
+            overlayClassName="user-dropdown"
+          >
+            <div className=" flex justify-center items-center gap-2 px-3 py-2 rounded-lg cursor-pointer transition-all duration-200 hover:bg-(--primary-color-800)  group">
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-all duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </Dropdown>
         </div>
       </Layout.Header>
       <Layout style={styles.layout}>

@@ -5,7 +5,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   if (request.method !== "POST")
-    return NextResponse.json({ message: "Method is not allowed" }, { status: 405 });
+    return NextResponse.json(
+      { success: false, message: "Method is not allowed" },
+      { status: 405 }
+    );
 
   try {
     await connectMongoose();
@@ -14,6 +17,7 @@ export async function POST(request: NextRequest) {
     if (!userName || !email || !password)
       return NextResponse.json(
         {
+          success: false,
           message: "All fields are required",
         },
         { status: 400 }
@@ -23,7 +27,7 @@ export async function POST(request: NextRequest) {
     
     if (existingUser)
       return NextResponse.json(
-        { message: "Email already registered" },
+        { success: false, message: "Email already registered. Please log in." },
         { status: 400 }
       );
 
@@ -36,12 +40,15 @@ export async function POST(request: NextRequest) {
       role: role ? role : "user",
     });
     return NextResponse.json({
+      success:true,
       message: "Account is created successfully",
       user: newUser,
     },{status:200});
   } catch (error) {
     console.log(error)
-    return NextResponse
-      .json({ message: "Internal server error", error: error },{status:500});
+    return NextResponse.json(
+      { success: false, message: "Internal server error", error: error },
+      { status: 500 }
+    );
   }
 }

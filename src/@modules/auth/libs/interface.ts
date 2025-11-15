@@ -4,16 +4,18 @@ export interface ISignIn {
 }
 
 export interface ISignUp extends ISignIn {
-  userName: string;
+    userName: string;
+    role?:string
 }
 
 export interface ISignInResponse {
+  status: number;
   success: boolean;
   user: {
     userName: string;
     email: string;
     password: string;
-    role: string;
+    role?: string;
     createdAt: string;
     updateAt: string;
   };
