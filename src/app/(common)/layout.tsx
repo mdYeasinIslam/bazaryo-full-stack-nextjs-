@@ -25,15 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <main
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    >
+    <main className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <Navbar />
       <div className="relative top-16">
-
         {children}
-        <Footers/>
+        <Footers />
       </div>
-      </main>
+    </main>
   );
 }

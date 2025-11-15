@@ -1,20 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
-import { Button, Grid, Layout, Menu, theme } from "antd";
-import Link from "next/link";
-import Image from "next/image";
 import { paths } from "@/@libs/constants/paths";
+import useResize from "@/@libs/hooks/useResize";
+import { Button, Grid, Layout, theme } from "antd";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import { usePathname } from "next/navigation";
 import MainMenu from "./menu/MainMenu";
-import useResize from "@/@libs/hooks/useResize";
 // import logo from "/logo.png";
-
-const { Header, Sider, Content } = Layout;
-
-const AdminLayout: React.FC = () => {
+interface IProp extends React.PropsWithChildren {
+  
+}
+const AdminLayout: React.FC<IProp> = ({children}) => {
   const pathName = usePathname();
   const { elemRef: headerRef, height: headerHeight } = useResize();
   const screenSize = Grid.useBreakpoint();
@@ -22,7 +22,6 @@ const AdminLayout: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  console.log(headerHeight);
   const styles: any = {
     header: {
       position: "fixed",
@@ -31,13 +30,11 @@ const AdminLayout: React.FC = () => {
       height: "auto",
       display: "flex",
       alignItems: "center",
-      // justifyContent: "space-between",
-      // background: isLight ? "#fff" : "#1f1f1f",
       background: "#fff",
       gap: "1rem",
       paddingInline: collapsed ? "2rem" : "3rem",
       paddingTop: 10,
-      paddingBottom:10,
+      paddingBottom: 10,
 
       zIndex: 99,
     },
@@ -47,7 +44,6 @@ const AdminLayout: React.FC = () => {
       left: !screenSize.md && collapsed ? "-100%" : 0,
       paddingLeft: screenSize.md ? 16 : 0,
       height: `calc(100vh)`,
-      // background: isLight ? "#fff" : "#1f1f1f",
       background: "#fff",
 
       zIndex: 90,
@@ -60,14 +56,13 @@ const AdminLayout: React.FC = () => {
       overflowY: "auto",
     },
     layout: {
-      // background: isLight ? "#fff" : "#1f1f1f",
       background: "#F5F5F5",
-
-      paddingLeft: !screenSize.md ? 0 : collapsed ? 100 : 220,
+      paddingLeft: !screenSize.md ? 0 : collapsed ? 90 : 220,
+      paddingRight: !screenSize.md ? 0 : collapsed ? 20 : 20,
     },
     content: {
-      paddingTop: headerHeight * 1.5,
-      // paddingBottom: `calc(32px + ${footerHeight}px)`,
+      // position:'relative'
+      paddingTop: headerHeight + 10,
     },
   };
   return (
@@ -92,11 +87,7 @@ const AdminLayout: React.FC = () => {
           </Link>
         </div>
         <div className="w-full  flex items-center justify-between">
-          <Button
-            type="text"
-            className=" "
-            onClick={() => setCollapsed(!collapsed)}
-          >
+          <Button type="text" onClick={() => setCollapsed(!collapsed)}>
             <MdOutlineKeyboardDoubleArrowRight
               size={24}
               className={collapsed ? "rotate-0" : "rotate-180"}
@@ -109,13 +100,25 @@ const AdminLayout: React.FC = () => {
         <Layout.Sider
           trigger={null}
           collapsible
-          collapsed={collapsed}
-          style={styles.slider}
+          collapsed={screenSize.md && collapsed}
+          style={styles?.slider}
+          width={200}
+          breakpoint="md"
+          onBreakpoint={(broken) => {
+            if (broken) setCollapsed(true);
+          }}
           onCollapse={(value) => setCollapsed(value)}
         >
           <MainMenu defaultSelectedKeys={[pathName]} />
         </Layout.Sider>
-        <Layout.Content style={styles.content}>Content</Layout.Content>
+        <Layout.Content style={styles.content}>
+          {" "}
+          <div className=" md:h-full">
+            <div className="rounded-3xl bg-[#f5f5f5] md:p-2 md:h-full lg:p-0">
+              {children}
+            </div>
+          </div>
+        </Layout.Content>
       </Layout>
     </Layout>
   );

@@ -1,14 +1,22 @@
-import { paths } from '@/@libs/constants/paths';
-import { Menu } from 'antd';
-import { CgProductHunt, CgShoppingCart } from 'react-icons/cg';
-import { MdDashboard } from 'react-icons/md';
-interface IProp{
-    defaultSelectedKeys: string[];
-    openedMenuKeys?: string[];
-    onOpenChange?:(openKeys:string[])=>void
+import { paths } from "@/@libs/constants/paths";
+import { Menu } from "antd";
+import Link from "next/link";
+import { CgProductHunt, CgShoppingCart } from "react-icons/cg";
+import { MdDashboard } from "react-icons/md";
+interface IProp {
+  defaultSelectedKeys: string[];
+  openedMenuKeys?: string[];
+  onOpenChange?: (openKeys: string[]) => void;
 }
 
-export default function MainMenu({defaultSelectedKeys,openedMenuKeys,onOpenChange}:IProp) {
+export default function MainMenu({
+  defaultSelectedKeys,
+  openedMenuKeys,
+  onOpenChange,
+}: IProp) {
+  //   const onOpenChange = () => {
+  //     console.log();
+  //   };
   return (
     <Menu
       //theme="dark"
@@ -21,17 +29,21 @@ export default function MainMenu({defaultSelectedKeys,openedMenuKeys,onOpenChang
         {
           key: paths.admin.root,
           icon: <MdDashboard className="h-5 w-5" />,
-          label: "OverView",
+          label: <Link href={`${paths?.admin?.root}`}>OverView</Link>,
         },
         {
           key: paths.admin.product.list,
           icon: <CgShoppingCart className="h-5 w-5" />,
-          label: "All Products",
+          label: (
+            <Link href={`${paths?.admin?.product?.list}`}>All Products</Link>
+          ),
         },
         {
           key: paths.admin.product.add,
           icon: <CgProductHunt className="h-5 w-5" />,
-          label: "Add Product",
+          label: (
+            <Link href={`${paths?.admin?.product?.add}`}>Add Products</Link>
+          ),
         },
       ]}
     />

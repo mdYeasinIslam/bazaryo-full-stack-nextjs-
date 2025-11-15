@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import DisplayProduct from "./DisplayProduct";
 import { ProductType } from "@/types/productsType";
-import ProductModal from "@/components/Products/Modal/ProductModal";
+import ProductModal from "@/@modules/admin-dashboard/all-product/components/ProductModal";
 import CommonTitle from "@/@base/components/CommonTitle";
 
 export default function FeaturedProducts() {

@@ -3,13 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color-50: #DCFCE7;
   --primary-color-100: #CCE3D6;
 
   --primary-color-600: #00A264;
   --primary-color-700: #166534;
-    --primary-color-800: #105528;
-    --primary-color-900: #101828;
-    --hover-color: #105528; /* blue */
+  --primary-color-800: #105528;
+  --primary-color-900: #101828;
+  --hover-color: #105528; /* blue */
 }
 
 .bg-color{
