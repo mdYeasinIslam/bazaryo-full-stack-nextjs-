@@ -1,49 +1,72 @@
-'use client'
-import { FcGoogle } from "react-icons/fc";
-import React, { FormEvent, useState } from "react";
-import Link from "next/link";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+"use client";
 import { paths } from "@/@libs/constants/paths";
+import { storage } from "@/@libs/utils/storage";
+import { useSignIn } from "@/@modules/auth/libs/hooks";
+import { Button, Form, FormProps, Input, message } from "antd";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
 
-const page = () => {
-  const [error, setError] = useState("");
+type FieldType = {
+  email: string;
+  password: string;
+  remember?: string;
+};
+const Page = () => {
+  const [messageApi, messageHolder] = message.useMessage();
   const route = useRouter();
-  const formHandler = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const email = form.get("email");
-    const password = form.get("password");
-    const data = { email, password };
-    console.log(data);
-    try {
-      const response = await fetch("http://localhost:3000/api/auth/signIn", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      const result = await response.json();
-      if (result?.error) setError(result.error);
-      if (result?.message) {
-        setError("");
-        route.push("/");
-        toast.success("You are successfully logged-in");
-      }
-    } catch (error) {
-      console.error("Error during sign in:", error);
-      setError(`Error : ${error}`);
-    }
+  const signInFn = useSignIn({
+    config: {
+      onSuccess(data) {
+        console.log(data);
+        storage.setData("token", data?.token);
+        messageApi.loading('Welcome to Bazaryo', 1).then(() => {
+          route.push('/')
+        })
+      },
+    },
+  });
+  const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
+    const { email, password } = values;
+    signInFn.mutate({ email, password });
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:3000/api/auth/signIn",
+    //     values
+    //   );
+    //   const result = await response.data;
+
+    //   if (result?.success) {
+    //     console.log(result)
+    //     localStorage.setItem('token',result.token)
+    //     messageApi.success({
+    //       type: "success",
+    //       content: "You are successfully logged-in",
+    //     });
+    //     route.push("/");
+    //   }
+    //   if (result?.error) {
+    //     messageApi.error({
+    //       type: "error",
+    //       content: result?.error,
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.error("Error during sign in:", error);
+    // }
   };
-  console.log(error);
+  const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (error) => {
+    console.log(error);
+  };
+
   return (
     <section>
+      {messageHolder}
       <div className="  mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:h-screen gap-10 px-4 md:px-0">
         {/* form section */}
         <div className="flex-1 flex flex-col items-center justify-center bg-white rounded-lg  px-10 py-12 w-full ">
           <h1 className="text-3xl font-bold mb-2 text-gray-800">Login</h1>
-          <form
+          {/* <form
             onSubmit={formHandler}
             className="w-full flex flex-col gap-4 max-w-md"
           >
@@ -84,8 +107,61 @@ const page = () => {
             >
               Sign In
             </button>
-          </form>
-
+          </form> */}
+          <Form
+            name="signup"
+            layout="vertical"
+            className="max-w-md! w-full"
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            scrollToFirstError={true}
+            size="large"
+            rootClassName="[&_.ant-form-item-label]:p-0! "
+          >
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                {
+                  type: "email",
+                  message: "The input is not valid E-mail!",
+                },
+                {
+                  required: true,
+                  message: "Please input your E-mail!",
+                },
+              ]}
+              className="m-0!"
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              label="Password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+              ]}
+              // hasFeedback
+              className="m-0!"
+            >
+              <Input.Password />
+            </Form.Item>
+            <Form.Item>
+              <Button
+                type="default"
+                className="bg-(--primary-color-800)! text-white! w-full mt-3 border! border-(--primary-color-800)!"
+                htmlType="submit"
+                size="large"
+              >
+                Log In
+              </Button>
+            </Form.Item>
+          </Form>
           {/* google login  */}
           <div className="w-full flex flex-col max-w-md">
             <button
@@ -97,7 +173,7 @@ const page = () => {
             </button>
           </div>
           <h1 className="text-gray-400 mt-3">
-            Don't have an account?{" "}
+            Do not have an account?{" "}
             <Link
               href={paths?.auth?.signUp}
               className="text-(--primary-color-700) hover:underline pl-1 font-medium"
@@ -111,4 +187,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

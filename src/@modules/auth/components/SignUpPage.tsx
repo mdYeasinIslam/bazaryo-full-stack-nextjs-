@@ -1,98 +1,44 @@
 "use client";
 import { FcGoogle } from "react-icons/fc";
-import React, { FormEvent, useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { Button, Form, FormProps, Input } from "antd";
+import { Button, Form, FormProps, Input, message } from "antd";
+import { useSignUp } from "../libs/hooks";
+import { useRouter } from "next/navigation";
 
 type FieldType = {
-  username?: string;
-  password?: string;
+  userName: string;
+  email:string
+  password: string;
   remember?: string;
 };
 const SignUpPage = () => {
-  const [error, setError] = useState("");
-  const formHandler = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const email = form.get("email");
-    const password = form.get("password");
-    const data = { name, email, password };
-    console.log(data);
-    try {
-      const response = await fetch("http://localhost:3000/api/auth/signIn", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      const result = await response.json();
-      if (result?.error) setError(result.error);
-    } catch (error) {
-      console.error("Error during sign in:", error);
-    }
-  };
+  const router = useRouter();
+  const [messageApi, messageHolder] = message.useMessage();
 
-    const onFinish:FormProps<FieldType>['onFinish'] = (values) => {
-        console.log(values)
-    }
-    const onFinishFailed : FormProps<FieldType>['onFinishFailed'] = (error) => {
-        console.log(error)
-    }
+  const signUpFn = useSignUp({
+    config: {
+    onSuccess(data) {
+        console.log(data)
+    },
+  }
+})
+  const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
+    const {userName,email,password} = values
+    signUpFn.mutate({ userName, email, password })
+    messageApi
+      .loading("User created successfully")
+      .then(() => router.push("/signIn"));
+  };
+  const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (error) => {
+    console.log(error);
+  };
   return (
     <section>
+      {messageHolder}
       <div className=" mx-auto flex flex-col-reverse md:flex-row items-center justify-center h-screen gap-10 px-4 md:px-0">
-        {/* form section */}
         <div className="flex-1 flex flex-col items-center justify-center bg-white rounded-lg  px-10 py-12 w-full ">
           <h1 className="text-3xl font-bold mb-2 text-gray-800">Register</h1>
-          {/* <form className="w-full flex flex-col gap-4 max-w-md">
-           
-            {error.length > 0 && <div className="text-red-500">{error}</div>}
-            <div className="w-full">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Alex Gold"
-                className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            
-            <div className="w-full">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="bg-(--primary-color-700) text-white font-semibold rounded py-3 mt-2 hover:bg-(--hover-color) transition"
-            >
-              Register
-            </button>
-          </form> */}
           <Form
             name="signup"
             layout="vertical"
@@ -106,8 +52,8 @@ const SignUpPage = () => {
             rootClassName="[&_.ant-form-item-label]:p-0! "
           >
             <Form.Item<FieldType>
-              label="Username"
-              name="username"
+              label="UserName"
+              name="userName"
               rules={[
                 { required: true, message: "Please input your username!" },
               ]}
@@ -142,7 +88,7 @@ const SignUpPage = () => {
                   message: "Please input your password!",
                 },
               ]}
-              hasFeedback
+              // hasFeedback
               className="m-0!"
             >
               <Input.Password />

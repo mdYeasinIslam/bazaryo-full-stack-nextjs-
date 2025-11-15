@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import Link from "next/link";
 import Image from "next/image";
 import { paths } from "@/@libs/constants/paths";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const user = { email: "h@gamil.com" };
+  const route = useRouter();
+  const [checkToken, setCheckToken] = useState(true);
   console.log(paths.root);
   const menuItems = [
     { href: paths.root, label: "Home" },
@@ -19,9 +21,13 @@ const Navbar = () => {
     // { href: "/order", label: "Orders" },
     { href: paths?.publicRoot?.contact, label: "Contact" },
   ];
-
   const signOut = () => {
-    // handle sign out
+    setCheckToken(true);
+    localStorage.removeItem("token");
+    if (!localStorage.getItem("token")) {
+      setCheckToken(false);
+      route.push("/");
+    }
   };
 
   return (
@@ -69,10 +75,10 @@ const Navbar = () => {
 
           {/* Right: Search & Auth */}
           <div className="flex items-center gap-1 md:gap-2">
-            {!user?.email ? (
+            {!checkToken ? (
               <button
                 onClick={signOut}
-                className="bg-(--primary-color-700)  text-white px-4 py-2 rounded-md font-semibold hover:var(--hover-color) transition"
+                className="bg-(--primary-color-700)  text-white px-4 py-2 rounded-md font-semibold hover:var(--hover-color) transition cursor-pointer"
               >
                 Log Out
               </button>

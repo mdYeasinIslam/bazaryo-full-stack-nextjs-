@@ -16,4 +16,5 @@ export const paths = {
     about: "/about",
     contact: "/contact",
   },
+  apiRoute: "http://localhost:3000/api",
 };
