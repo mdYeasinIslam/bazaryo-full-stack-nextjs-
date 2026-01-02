@@ -11,7 +11,6 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const route = useRouter();
   const [checkToken, setCheckToken] = useState(true);
-  console.log(paths.root);
   const menuItems = [
     { href: paths.root, label: "Home" },
     { href: paths?.publicRoot?.about, label: "About" },

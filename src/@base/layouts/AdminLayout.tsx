@@ -1,20 +1,17 @@
 "use client";
-import React, { PropsWithChildren, ReactNode, useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 
 import { paths } from "@/@libs/constants/paths";
 import useResize from "@/@libs/hooks/useResize";
-import { Avatar, Button, Dropdown, Grid, Layout, MenuProps, message, theme } from "antd";
+import { Button, Dropdown, Grid, Layout, MenuProps, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaUser } from "react-icons/fa";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import MainMenu from "./menu/MainMenu";
 import { AiOutlineLogout } from "react-icons/ai";
 import { storage } from "@/@libs/utils/storage";
 // import logo from "/logo.png";
-  
-
 const items: MenuProps["items"] = [
   {
     key: "Signout",
@@ -34,9 +31,9 @@ const AdminLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { elemRef: headerRef, height: headerHeight } = useResize();
   const screenSize = Grid.useBreakpoint();
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  // const {
+  //   token: { colorBgContainer, borderRadiusLG },
+  // } = theme.useToken();
   const styles: any = {
     header: {
       position: "fixed",
@@ -102,13 +99,13 @@ const AdminLayout: React.FC<PropsWithChildren> = ({ children }) => {
               height={500}
               className="w-8 h-8"
             />
-            <h2
+            {/* <h2
               className={` text-4xl font-bold text-(--primary-color-900)  hover:text-(--primary-color-800)  ${
                 collapsed ? "hidden " : "block"
               }`}
             >
               Bazaryo
-            </h2>
+            </h2> */}
           </Link>
         </div>
         <div className="w-full  flex items-center justify-between">

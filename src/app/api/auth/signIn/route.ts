@@ -1,9 +1,8 @@
 import connectMongoose from "@/@libs/config/mongodb";
 import { UserModel } from "@/models/auth";
 import bcrypt from "bcrypt";
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
-
 
 const jwt_secret = process.env.JWT_SECRET as string;
 
@@ -17,13 +16,18 @@ export async function POST(request: NextRequest) {
     await connectMongoose();
 
     const { email, password } = await request.json();
-    if (!email || !password)
+    console.log(email, password, "first");
+
+    if (!email && !password)
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
       );
+    console.log(email, password, "second");
 
     const findUser = await UserModel.findOne({email});
+    console.log(findUser);
+
     if (!findUser)
       return NextResponse.json(
         { success: false, message: "Invalid credentials, user not found" },
@@ -33,19 +37,23 @@ export async function POST(request: NextRequest) {
     const isMatch = await bcrypt.compare(password, findUser.password);
     if (!isMatch)
       return NextResponse.json(
-        {success:false, message: "Invalid credentials" },
+        { success: false, message: "Invalid credentials" },
         { status: 400 }
       );
     const token = jwt.sign(
-      {userId:findUser._id,email:findUser.email}, jwt_secret,
-    {expiresIn:'1h'}
-    )
-    return NextResponse.json({
-      success:true,
-      user: findUser,
-      token: token,
-      message: "You are successfully logged in",
-    },{status:200});
+      { userId: findUser._id, email: findUser.email },
+      jwt_secret,
+      { expiresIn: "1h" }
+    );
+    return NextResponse.json(
+      {
+        success: true,
+        user: findUser,
+        token: token,
+        message: "You are successfully logged in",
+      },
+      { status: 200 }
+    );
   } catch (error) {
     return NextResponse.json(
       { success: false, message: "Internal server error", error: error },

@@ -12,7 +12,7 @@ const Home:React.FC = () => {
       <FeaturedProducts />
       <WhyChooseUs />
       {/* <Testimonials /> */}
-      <CTASection />
+      {/* <CTASection /> */}
     </div>
   );
 };

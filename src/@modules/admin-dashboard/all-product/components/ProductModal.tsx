@@ -1,4 +1,5 @@
 import { ProductType } from '@/types/productsType';
+import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react'
 import { BiMinus, BiPlus, BiStar, BiX } from 'react-icons/bi'
 import { CiShoppingCart } from 'react-icons/ci';
@@ -45,9 +46,11 @@ export default function ProductModal({
         <div className="grid md:grid-cols-2 gap-8 p-6">
           {/* Product Image */}
           <div className="relative">
-            <img
+            <Image
               src={selectedProduct.image || "/placeholder.svg"}
               alt={selectedProduct.name}
+              width={500}
+              height={500}
               className="w-full h-96 object-cover rounded-lg"
             />
             <div
@@ -144,7 +147,7 @@ export default function ProductModal({
                 disabled={!selectedProduct.inStock}
                 className={`w-full py-4 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
                   selectedProduct.inStock
-                    ? "bg-[var(--primary-color-700)] text-white hover:bg-[var(--hover-color)]"
+                    ? "bg-(--primary-color-700) text-white hover:bg-(--hover-color)"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
               >
