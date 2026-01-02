@@ -5,7 +5,7 @@ export default function page() {
   return (
       <div>
       {/* <AdminLayout/> */}
-      <DashboardStaticCard/>
+      {/* <DashboardStaticCard/> */}
     </div>
   )
 }

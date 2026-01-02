@@ -59,7 +59,7 @@ export default function DisplayProduct({
       {/* Product Image */}
       <div className="relative overflow-hidden">
         <img
-          src={product.image || "/placeholder.svg"}
+          src={product?.image || "/placeholder.svg"}
           alt={product.name}
           className="w-full h-64 group-hover:scale-110 transition-transform duration-500 object-center object-fill"
         />
@@ -68,9 +68,9 @@ export default function DisplayProduct({
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <button
             onClick={() => openQuickView(product)}
-            className="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+            className="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 flex items-center space-x-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 cursor-pointer"
           >
-            <BsEye className="w-4 h-4" />
+            <BsEye className="w-4 h-4"/>
             <span>Quick View</span>
           </button>
         </div>

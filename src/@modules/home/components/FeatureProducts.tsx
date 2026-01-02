@@ -56,7 +56,7 @@ export default function FeaturedProducts() {
         return "bg-gray-500";
     }
   };
-
+console.log(selectedProduct);
   return (
     <section className="py-16 bg-color">
       <div className="container mx-auto px-6">

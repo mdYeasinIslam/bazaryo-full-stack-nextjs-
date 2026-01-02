@@ -8,11 +8,13 @@ export const AuthServices = {
   signIn: async (payload: ISignIn):Promise<ISignInResponse> => {
     try {
       const response = await axios.post(
-        `${paths?.apiRoute}/auth/signIn`,
+        `${paths?.apiRoute}/${END_POINT}/signIn`,
         payload
       );
+      console.log(response)
       return Promise.resolve(response.data);
     } catch (error: unknown) {
+      console.log(error)
       if (axios.isAxiosError(error) && error.response) {
         const { response } = error;
         console.error("Sign in error:", response.data);
@@ -25,7 +27,7 @@ export const AuthServices = {
   signUp: async (payload: ISignUp) => {
     try {
       const res = await axios.post(
-        `${paths?.apiRoute}/auth/create-user`,
+        `${paths?.apiRoute}/${END_POINT}/create-user`,
         payload
       );
       return Promise.resolve(res.data);
