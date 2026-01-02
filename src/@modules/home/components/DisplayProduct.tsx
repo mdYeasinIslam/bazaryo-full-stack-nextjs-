@@ -133,7 +133,7 @@ export default function DisplayProduct({
           disabled={!product.inStock}
           className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
             product.inStock
-              ? " bg-[var(--primary-color-700)] text-white hover:bg-white hover:text-black   border hover:border-green-800 duration-300"
+              ? " bg-(--primary-color-700) text-white hover:bg-white hover:text-black   border hover:border-green-800 duration-300"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >

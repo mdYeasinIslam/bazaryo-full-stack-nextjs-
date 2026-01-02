@@ -20,7 +20,7 @@ export default function DashboardStaticCard() {
                   </h1>
                 </div>
                 <div className="bg-(--primary-color-50) rounded-xl p-1 lg:p-1.5">
-                  <BiCart className="w-5 h-5 lg:w-7 lg:h-7 text-(--primary-color-600)" />
+                  <BiCart className="w-5 h-5 lg:w-7 lg:h-7 text-(--primary-color-500)" />
                 </div>
               </div>
             )),

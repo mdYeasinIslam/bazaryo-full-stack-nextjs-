@@ -21,7 +21,7 @@ export default function MainMenu({
     <Menu
       //theme="dark"
       mode="inline"
-      className="[&_.ant-menu-item]:text-black! [&_.ant-menu-item-selected]:text-(--primary-color-600)! [&_.ant-menu-item]:text-md font-semibold [&_.ant-menu-item-selected]:bg-(--primary-color-100)! "
+      className="[&_.ant-menu-item]:text-black! [&_.ant-menu-item-selected]:text-(--primary-color-500)! [&_.ant-menu-item]:text-md font-semibold [&_.ant-menu-item-selected]:bg-(--primary-color-100)! "
       defaultSelectedKeys={defaultSelectedKeys}
       openKeys={openedMenuKeys}
       onOpenChange={onOpenChange}
