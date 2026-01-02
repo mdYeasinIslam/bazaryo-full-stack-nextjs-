@@ -30,8 +30,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" shadow-md  w-full">
-      <div className="container mx-auto bg-[#F8F8FC] px-4 sm:px-2 lg:px-8  fixed z-50 ">
+    <nav className="fixed shadow-md w-full  z-50">
+      <div className="container mx-auto bg-green-100 px-4 sm:px-2 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo & Mobile Menu */}
           <div className="flex flex-row-reverse items-center gap-2">

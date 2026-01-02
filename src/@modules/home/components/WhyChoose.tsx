@@ -1,7 +1,7 @@
 "use client";
 
 import CommonTitle from "@/@base/components/CommonTitle";
-import { BiCheckCircle, BiCreditCard, BiShield, BiStar } from "react-icons/bi";
+import { BiCheckCircle, BiCreditCard, BiShield } from "react-icons/bi";
 import { BsClock, BsHeadphones, BsTruck } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 
@@ -131,7 +131,7 @@ export default function WhyChooseUs() {
             const colors = getColorClasses(feature.color);
             return (
               <div
-                key={feature.id}
+                key={index}
                 className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border ${colors.border} hover:scale-105`}
               >
                 {/* Background Gradient */}

@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import Image from "next/image";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import TestimonialCard from "./TestimonialCard";
 import Marquee from "react-fast-marquee";
+import TestimonialCard from "./TestimonialCard";
 
 const testimonials = [
   {
@@ -48,7 +46,7 @@ const testimonials = [
 
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState(3);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -70,15 +68,15 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, testimonials.length - visibleItems);
+  // const maxIndex = Math.max(0, testimonials.length - visibleItems);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
-  };
+  // const handlePrev = () => {
+  //   setCurrentIndex((prev) => Math.max(0, prev - 1));
+  // };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-  };
+  // const handleNext = () => {
+  //   setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  // };
 
   return (
     <section className="bg-color py-16 px-5 xl:px-0">
