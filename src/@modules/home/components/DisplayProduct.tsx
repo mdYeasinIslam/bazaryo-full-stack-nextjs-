@@ -1,6 +1,5 @@
 import { ProductType } from "@/types/productsType";
-import React from "react";
-import { BiHeart, BiStar } from "react-icons/bi";
+import { BiStar } from "react-icons/bi";
 import { BsEye } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
 import { FaHeart } from "react-icons/fa";
