@@ -5,14 +5,14 @@ import WhyChooseUs from "@/@modules/home/components/WhyChoose";
 
 const Home:React.FC = () => {
   return (
-    <div>
+    <>
       <BusinessBanner />
       <CategoryMarquee />
       <FeaturedProducts />
       <WhyChooseUs />
       {/* <Testimonials /> */}
       {/* <CTASection /> */}
-    </div>
+    </>
   );
 };
 export default Home;

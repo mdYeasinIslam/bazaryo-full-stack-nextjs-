@@ -111,7 +111,7 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-20 bg-linear-to-br from-gray-50 to-white">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <CommonTitle
@@ -136,7 +136,7 @@ export default function WhyChooseUs() {
               >
                 {/* Background Gradient */}
                 <div
-                  className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${colors.gradient}`}
+                  className={`absolute top-0 left-0 w-full h-2 bg-linear-to-r ${colors.gradient}`}
                 ></div>
 
                 <div className="p-8">
@@ -168,7 +168,7 @@ export default function WhyChooseUs() {
                     {feature.benefits.map((benefit, benefitIndex) => (
                       <div key={benefitIndex} className="flex items-center">
                         <BiCheckCircle
-                          className={`w-5 h-5 ${colors.text} mr-3 flex-shrink-0`}
+                          className={`w-5 h-5 ${colors.text} mr-3 shrink-0`}
                         />
                         <span className="text-gray-700 text-sm">{benefit}</span>
                       </div>
@@ -177,7 +177,7 @@ export default function WhyChooseUs() {
 
                   {/* Learn More Button */}
                   <button
-                    className={`mt-6 w-full py-3 px-4 bg-gradient-to-r ${colors.gradient} text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+                    className={`mt-6 w-full py-3 px-4 bg-linear-to-r ${colors.gradient} text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
                   >
                     Learn More
                   </button>
@@ -236,7 +236,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Customer Testimonial */}
-        {/* <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+        {/* <div className="bg-linear-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
           <div className="flex justify-center mb-4">
             {[...Array(5)].map((_, i) => (
               <BiStar

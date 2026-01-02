@@ -4,12 +4,13 @@ import {
   AppstoreOutlined
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Menu } from "antd";
+import { ConfigProvider, Menu } from "antd";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { FcElectronics } from "react-icons/fc";
 import { Product } from "../libs/interfaces";
+import PublicMenuItems from "@/@base/layouts/menu/PublicMenuItems";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -20,11 +21,11 @@ const items: MenuItem[] = [
     label: "Electronics",
     children: [
       {
-        key: "1",
+        key: "Electronics-1",
         label: "Drone",
       },
       {
-        key: "2",
+        key: "Electronics-2",
         label: "Light",
       },
     ],
@@ -49,6 +50,53 @@ const items: MenuItem[] = [
       {
         key: "4",
         label: "Speaker",
+      },
+    ],
+  },
+
+  {
+    key: "Computer Accessories",
+    icon: <AppstoreOutlined />,
+    label: "Computer Accessories",
+    children: [
+      {
+        key: "Computer-1",
+        label: "Mouse & Keyboard",
+      },
+      {
+        key: "Computer-2",
+        label: "Pen Drive",
+      },
+      {
+        key: "Computer-3",
+        label: "HDD & SSD",
+      },
+      {
+        key: "Computer-4",
+        label: "Webcam",
+      },
+    ],
+  },
+  {
+    key: "Lifestyle",
+    icon: <AppstoreOutlined />,
+    label: "Lifestyle",
+    children: [
+      {
+        key: "Lifestyle-1",
+        label: "Men's Watches",
+      },
+      {
+        key: "Lifestyle-2",
+        label: "Women's Watches",
+      },
+      {
+        key: "Lifestyle-3",
+        label: "Hair Dryers",
+      },
+      {
+        key: "Lifestyle-4",
+        label: "Gift Set",
       },
     ],
   },
@@ -150,7 +198,7 @@ function ProductSlider({ products }: ProductSliderProps) {
             alt={product.name}
             width={500}
             height={500}
-            className="w-full h-86 object-center  transition-transform duration-700"
+            className="h-full w-full  transition-transform duration-700"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-6">
             <div className="text-white">
@@ -176,19 +224,19 @@ function ProductSlider({ products }: ProductSliderProps) {
         >
           <BiChevronRight className="w-5 h-5" />
         </button>
-      <div className="absolute bottom-5 right-1/2 flex justify-center mt-6 space-x-2">
-        {products.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
-              index === currentSlide
-                ? "bg-blue-600 w-8"
-                : "bg-gray-300 hover:bg-gray-400"
-            }`}
-          />
-        ))}
-      </div>
+        <div className="absolute bottom-5 right-1/2 flex justify-center mt-6 space-x-2">
+          {products.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                index === currentSlide
+                  ? "bg-blue-600 w-8"
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
       {/* Floating Cards */}
       {/* <FloatingCard
@@ -230,20 +278,31 @@ const BusinessBanner: React.FC<IProps> = ({ products = heroProducts }) => {
       <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-200 rounded-full opacity-20 animate-bounce"></div>
       <div className="absolute top-1/2 left-20 w-16 h-16 bg-green-200 rounded-full opacity-30"></div> */}
 
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-8 w-full">
+      <div>
+        <div className="grid  lg:grid-cols-8 w-full">
           {/* Left Side */}
-          <div className="col-span-2 py-7">
-            <Menu
-              onClick={onClick}
-              style={{ width: 256 }}
-              mode="vertical"
-              items={items}
-              className="w-full! text-base! "            
-            />
+          <div className=" hidden lg:block lg:col-span-2! ">
+            {/* <ConfigProvider
+              theme={{
+                components: {
+                  Menu: {
+                    itemHoverBg: "var(--primary-color-500)",
+                  },
+                },
+              }}
+            >
+              <Menu
+                onClick={onClick}
+                style={{ width: 256 }}
+                mode="vertical"
+                items={items}
+                className="w-full! text-base!"
+              />
+            </ConfigProvider> */}
+            <PublicMenuItems />
           </div>
           {/* Right Side - Slider */}
-          <div className="col-span-6">
+          <div className=" lg:col-span-6  ">
             <ProductSlider products={products} />
           </div>
         </div>

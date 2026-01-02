@@ -3,17 +3,16 @@ import { Menu } from "antd";
 import Link from "next/link";
 import { CgProductHunt, CgShoppingCart } from "react-icons/cg";
 import { MdDashboard } from "react-icons/md";
-interface IProp {
+interface IProps {
   defaultSelectedKeys: string[];
   openedMenuKeys?: string[];
   onOpenChange?: (openKeys: string[]) => void;
 }
-
-export default function MainMenu({
+const AdminMenuItems:React.FC<IProps>=({
   defaultSelectedKeys,
   openedMenuKeys,
   onOpenChange,
-}: IProp) {
+})=> {
   //   const onOpenChange = () => {
   //     console.log();
   //   };
@@ -49,3 +48,4 @@ export default function MainMenu({
     />
   );
 }
+export default AdminMenuItems;

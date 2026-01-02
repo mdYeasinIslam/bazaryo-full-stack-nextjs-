@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { paths } from "@/@libs/constants/paths";
 import { useRouter } from "next/navigation";
+import PublicMenuItems from "../layouts/menu/PublicMenuItems";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed shadow-md w-full  z-50">
-      <div className="container mx-auto bg-green-100 px-4 sm:px-2 lg:px-8">
+    <nav className="fixed shadow-md w-full bg-green-100  z-50">
+      <div className=" px-4 sm:px-2 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo & Mobile Menu */}
           <div className="flex flex-row-reverse items-center gap-2">
@@ -52,7 +53,7 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setShow(!show)}
-              className=" lg:hidden text-2xl text-gray-700 focus:outline-none"
+              className=" lg:hidden text-2xl  focus:outline-none"
               aria-label="Toggle Menu"
             >
               {show ? <RxCross2 /> : <AiOutlineMenuUnfold />}
@@ -91,7 +92,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   href={paths?.auth?.login}
-                  className="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-(--hover-color) transition"
+                  className="bg-green-800 text-white! px-4 py-2 rounded-md font-semibold hover:bg-(--hover-color) transition"
                 >
                   Log In
                 </Link>
@@ -103,7 +104,15 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {show && (
-        <div className="lg:hidden bg-white shadow-md absolute top-16 left-0 w-full z-40">
+        <div
+          // className="lg:hidden bg-white shadow-md absolute top-16 left-0 w-full z-40"
+          className={`${
+            show
+              ? "translate-x-0 opacity-100 z-20"
+              : "translate-x-[200px] opacity-0 z-[-1]"
+          } lg:hidden  p-4 text-center absolute right-0 w-full sm:w-[300px] rounded-md transition-transform ease-in  duration-1000`}
+        >
+          {/* <PublicMenuItems /> */}
           <ul className="flex flex-col space-y-2 px-6 py-4">
             {menuItems.map((item) => (
               <li key={item.href}>

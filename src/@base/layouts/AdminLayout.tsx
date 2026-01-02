@@ -8,9 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import MainMenu from "./menu/MainMenu";
 import { AiOutlineLogout } from "react-icons/ai";
 import { storage } from "@/@libs/utils/storage";
+import AdminMenuItems from "./menu/AdminMenuItems";
 // import logo from "/logo.png";
 const items: MenuProps["items"] = [
   {
@@ -80,8 +80,8 @@ const AdminLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const handleMenuClick: MenuProps["onClick"] = () => {
     message.info("Click on menu item.");
     console.log("click");
-    storage.removeItem('token')
-    window.location.reload()
+    storage.removeItem("token");
+    window.location.reload();
   };
   const menuProps = {
     items,
@@ -152,7 +152,7 @@ const AdminLayout: React.FC<PropsWithChildren> = ({ children }) => {
           }}
           onCollapse={(value) => setCollapsed(value)}
         >
-          <MainMenu defaultSelectedKeys={[pathName]} />
+          <AdminMenuItems defaultSelectedKeys={[pathName]} />
         </Layout.Sider>
         <Layout.Content style={styles.content}>
           {" "}
