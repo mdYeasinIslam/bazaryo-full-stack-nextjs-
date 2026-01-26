@@ -4,7 +4,7 @@ import validator from 'validator'
 
 const userSchema = new Schema<UserInterface>(
   {
-    name: {
+    userName: {
       type: String,
       require: true,
       trim: true,
@@ -12,7 +12,7 @@ const userSchema = new Schema<UserInterface>(
     email: {
       type: String,
       require: true,
-      uniqure: [true, "Email is already used"],
+      unique: [true, "Email is already used"],
       validate: [validator.isEmail, "Invalid email is send {VALUE}"],
       trim: true,
     },
@@ -20,7 +20,7 @@ const userSchema = new Schema<UserInterface>(
       type: String,
       require: true,
       // minLength: [4, 'Password length should have at least 4'],
-      // maxLength:[8,'Password lenght should less than 8'],
+      // maxLength:[8,'Password length should less than 8'],
       trim: true,
     },
     role: {

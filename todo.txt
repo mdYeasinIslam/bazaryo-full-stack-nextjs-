@@ -21,3 +21,6 @@ Third part: (31 october,2025 ------insa-allah)
  2. single product page (details page)
  3. product can be update and remove
  
+
+ Features:
+  1. Product variation (color, size, price etc.)

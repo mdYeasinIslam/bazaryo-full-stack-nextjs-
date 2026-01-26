@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Smartphone X200",
-        "image": "https://via.placeholder.com/300x200?text=Smartphone",
+        "image": "https://i.ibb.co.com/TM6sjKfF/2151039302.jpg",
         "price": "$699",
         "category": "Electronics",
         "originalPrice": "$799",
@@ -20,41 +20,43 @@
     },
     {
         "id": 2,
-        "name": "Bluetooth Speaker",
-        "image": "https://via.placeholder.com/300x200?text=Speaker",
-        "price": "$49",
-        "category": "Gadgets",
-        "originalPrice": "$69",
+         "name": "Coffee Maker",
+        "image": "https://i.ibb.co.com/1G4Nrrvy/2151083728.jpg",
+        "price": "$149",
+        "category": "Home & Kitchen",
+        "originalPrice": "$179",
         "rating": 4.5,
-        "reviews": 87,
-        "description": "Portable Bluetooth speaker with deep bass and long battery life.",
+        "reviews": 61,
+        "description": "Automatic coffee maker for perfect brews every morning.",
         "features": [
-            "10W Output",
-            "Water Resistant",
-            "12-Hour Playtime",
-            "Bluetooth 5.0"
+            "Programmable Timer",
+            "12-Cup Capacity",
+            "Easy Cleaning",
+            "Thermal Carafe"
         ],
         "inStock": true,
-        "badge": "Popular"
+        "badge": "Kitchen Star"
+       
     },
     {
         "id": 3,
-        "name": "Air Purifier Pro",
-        "image": "https://via.placeholder.com/300x200?text=Air+Purifier",
-        "price": "$199",
-        "category": "Home & Kitchen",
-        "originalPrice": "$249",
-        "rating": 4.7,
-        "reviews": 65,
-        "description": "Advanced air purifier for clean and healthy indoor air.",
+        "name": "Laptop Stand",
+        "image": "https://i.ibb.co.com/GQ4Mq1vQ/Gear-Branch-laptop-stand-SOURCE-Branch.jpg",
+        "price": "$89",
+        "category": "Accessories",
+        "originalPrice": "$99",
+        "rating": 4.4,
+        "reviews": 29,
+        "description": "Ergonomic laptop stand for comfortable working posture.",
         "features": [
-            "HEPA Filter",
-            "Smart Sensor",
-            "Silent Mode",
-            "Covers 500 sq ft"
+            "Adjustable Height",
+            "Aluminum Build",
+            "Non-Slip Base",
+            "Portable"
         ],
         "inStock": true,
-        "badge": "Eco Friendly"
+        "badge": "Recommended"
+        
     },
     {
         "id": 4,
@@ -78,7 +80,7 @@
     {
         "id": 5,
         "name": "Wireless Charger",
-        "image": "https://via.placeholder.com/300x200?text=Charger",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBzjy-xUCF0NkPI3HAdRJvzpAdmmgWJjMow&s",
         "price": "$29",
         "category": "Accessories",
         "originalPrice": "$39",
@@ -97,7 +99,7 @@
     {
         "id": 6,
         "name": "Noise Cancelling Headphones",
-        "image": "https://via.placeholder.com/300x200?text=Headphones",
+        "image": "https://i.ibb.co.com/tTGC65xx/2150722661.jpg",
         "price": "$149",
         "category": "Gadgets",
         "originalPrice": "$179",
@@ -209,23 +211,23 @@
         "badge": "Top Rated"
     },
     {
-        "id": 3,
-        "name": "Laptop Stand",
-        "image": "https://i.ibb.co.com/GQ4Mq1vQ/Gear-Branch-laptop-stand-SOURCE-Branch.jpg",
-        "price": "$89",
-        "category": "Accessories",
-        "originalPrice": "$99",
-        "rating": 4.4,
-        "reviews": 29,
-        "description": "Ergonomic laptop stand for comfortable working posture.",
+        "id": 12,
+        "name": "Air Purifier Pro",
+        "image": "https://i.ibb.co.com/tTGC65xx/2150722661.jpg",
+        "price": "$199",
+        "category": "Home & Kitchen",
+        "originalPrice": "$249",
+        "rating": 4.7,
+        "reviews": 65,
+        "description": "Advanced air purifier for clean and healthy indoor air.",
         "features": [
-            "Adjustable Height",
-            "Aluminum Build",
-            "Non-Slip Base",
-            "Portable"
+            "HEPA Filter",
+            "Smart Sensor",
+            "Silent Mode",
+            "Covers 500 sq ft"
         ],
         "inStock": true,
-        "badge": "Recommended"
+        "badge": "Eco Friendly"
     },
     {
         "id": 13,
@@ -305,21 +307,21 @@
     },
     {
         "id": 17,
-        "name": "Coffee Maker",
+        "name": "Bluetooth Speaker",
         "image": "https://i.ibb.co.com/1G4Nrrvy/2151083728.jpg",
-        "price": "$149",
-        "category": "Home & Kitchen",
-        "originalPrice": "$179",
+        "price": "$49",
+        "category": "Gadgets",
+        "originalPrice": "$69",
         "rating": 4.5,
-        "reviews": 61,
-        "description": "Automatic coffee maker for perfect brews every morning.",
+        "reviews": 87,
+        "description": "Portable Bluetooth speaker with deep bass and long battery life.",
         "features": [
-            "Programmable Timer",
-            "12-Cup Capacity",
-            "Easy Cleaning",
-            "Thermal Carafe"
+            "10W Output",
+            "Water Resistant",
+            "12-Hour Playtime",
+            "Bluetooth 5.0"
         ],
         "inStock": true,
-        "badge": "Kitchen Star"
+        "badge": "Popular"
     }
 ]

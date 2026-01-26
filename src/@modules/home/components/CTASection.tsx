@@ -35,7 +35,7 @@ export default function CTASection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+    <section className="py-20 bg-linear-to-br from-blue-900 via-purple-900 to-indigo-900 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400 rounded-full opacity-10 animate-pulse"></div>
@@ -49,15 +49,15 @@ export default function CTASection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Ready to Join the
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
               {" "}
               Bazaryo{" "}
             </span>
             Community?
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Whether you're looking to sell your products or discover amazing
-            deals, we've got you covered.
+            Whether you&apos;re looking to sell your products or discover
+            amazing deals, we&apos;ve got you covered.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function CTASection() {
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
             <div className="text-center">
               {/* Icon */}
-              <div className="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-linear-to-r from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <BiStore className="w-10 h-10 text-white" />
               </div>
 
@@ -102,7 +102,7 @@ export default function CTASection() {
               {/* CTA Button */}
               <button
                 onClick={handleSellerSignup}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
+                className="w-full bg-linear-to-r from-green-500 to-emerald-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
               >
                 <span>Sign Up to Sell</span>
                 <BsArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -126,7 +126,7 @@ export default function CTASection() {
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
             <div className="text-center">
               {/* Icon */}
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-linear-to-r from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <BiShoppingBag className="w-10 h-10 text-white" />
               </div>
 
@@ -160,7 +160,7 @@ export default function CTASection() {
               {/* CTA Button */}
               <button
                 onClick={handleStartBrowsing}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
+                className="w-full bg-linear-to-r from-blue-500 to-purple-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
               >
                 <span>Start Browsing</span>
                 <BsArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -184,7 +184,7 @@ export default function CTASection() {
         {/* Newsletter Signup */}
         <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-linear-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <CgMail className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -215,7 +215,7 @@ export default function CTASection() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-xl hover:from-yellow-500 hover:to-orange-600 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="px-8 py-4 bg-linear-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-xl hover:from-yellow-500 hover:to-orange-600 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isLoading ? (
                     <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>

@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+
   images: {
     remotePatterns: [
       {
@@ -19,11 +21,19 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-    domains: [
-      "randomuser.me",
-      "res.cloudinary.com",
-      "i.ibb.co.com",
-    ],
+    domains: ["randomuser.me", "res.cloudinary.com", "i.ibb.co.com"],
   },
+  
+  transpilePackages: [
+    "@ant-design",
+    "@ant-design/icons",
+    "rc-util",
+    "rc-input",
+    "rc-select",
+    "rc-picker",
+    "rc-pagination",
+    "rc-table",
+    "rc-tree",
+  ],
 };
 export default nextConfig;

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react'
-import logo from "../../../public/logo.png";
 
 export default function ImageSection() {
   return (
@@ -9,7 +8,7 @@ export default function ImageSection() {
         <div className="flex  flex-col justify-center items-center gap-5">
           <figure className="flex items-center justify-center">
             <Image
-              src={logo}
+              src={'/logo.png'}
               alt="Login Illustration"
               width={500}
               height={500}
